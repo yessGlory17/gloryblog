@@ -32,7 +32,9 @@
         <i class="lni lni-home lni-32"></i>
       </div>
       <div class="mobile-navigation-add">
-        <i class="lni lni-plus lni-32"></i>
+        <a href="editor.html" class="editor-link">
+          <i class="lni lni-plus lni-32"></i>
+        </a>
       </div>
       <div class="mobile-navigation-login">
         <i class="lni lni-user lni-32"></i>
@@ -287,6 +289,8 @@
 
             CheckMode();
 
+            YazilariGetir();
+
             //Önerilen yazıları kaydırma
             var b = null;
             $(".onerilen-liste div").on("mousemove",function(e){
@@ -375,6 +379,79 @@
                 }
             }
 
+
+
+            //Yazıların gösterilmesi 
+            function YazilariGetir(){
+
+
+              
+              $.ajax({
+                type: "GET",
+                url : "backend/yazilarigetir.php",
+                success : function(response){
+                  //console.log(JSON.parse(response));
+
+                  var yazilar = JSON.parse(response);
+
+                  $.each(yazilar,function(index, item){
+                    console.log(item["icerik"]);
+                    var a = [];
+                    a[0] = item["icerik"];
+                    a = $.map(a,function(str, i){
+                      return $("<div/>").html(str).text();
+                    })
+
+                    var icerikkarti = '<div class="yazilar">'+
+
+                          '<div class="yazi-ana-container">' +
+                            '<div class="yazi-alani">'+
+                              '<div class="yazar-adi">'+
+                                '<div class="yazar-resim-container">'+
+                                  '<img src="https://images.unsplash.com/photo-1606128731408-70e0e715b858?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=925&q=80" alt="" class="yazar-resim">'+
+                                '</div>'+
+                                '<p class="yazar-adi-text"> Özgür Kurucan</p>'+
+                              '</div>'+
+                              '<div class="icerik">'+
+                                '<div class="icerik-baslik">'+
+                                ' <p class="icerik-baslik-text">' + item["baslik"] +'</p>' +
+                                '</div>'+
+                                '<div class="icerik-ana">' +
+                                  '<p class="icerik-ana-text">' +
+                                    a +
+                                  '</p>'+
+                                '</div>'+
+                              '</div>'+
+
+                              '<div class="yazi-bilgi">'+
+                                '<p class="yazi-bilgi-tarih">24 Kasım</p>'+
+                                '<div class="yazi-bilgi-nokta"></div>' +
+                                '<p class="yazi-bilgi-okuma-suresi">' +' 2 dk okuma'+'</p>'+
+                            ' </div>'+
+
+                            '</div>'+
+                            '<div class="resim-ana-container">'+
+                              '<div class="resim-icerik-alani">' +
+                              ' <img src="' + item["anaresim"] + '" alt="" class="resim-icerik">' +
+                              '</div>'+
+                            '</div>'+
+                          '</div>'+
+
+
+
+
+                          '</div>';
+
+
+                          
+                        $(".main").append(icerikkarti);
+                  })
+                }
+              })
+            }
+
+
+            
           });
       </script>
 
