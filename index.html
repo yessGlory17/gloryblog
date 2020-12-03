@@ -12,6 +12,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
     <script src="./jQuery/jquery-3.5.1.min.js"></script>
+    <script
+  src="https://code.jquery.com/jquery-3.5.1.js"
+  integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+  crossorigin="anonymous"></script>
 </head>
 <body>
     <div class="header">
@@ -37,7 +41,9 @@
         </a>
       </div>
       <div class="mobile-navigation-login">
-        <i class="lni lni-user lni-32"></i>
+        <a href="signin.html" class="sign-in-link">
+          <i class="lni lni-user lni-32"></i>
+        </a>
       </div>
     </div>
 
@@ -105,7 +111,7 @@
       
       <!--Yazı 1-->
 
-      <div class="yazilar">
+      <!-- <div class="yazilar">
 
         <div class="yazi-ana-container">
           <div class="yazi-alani">
@@ -145,7 +151,7 @@
   
       </div>
 
-      <!--Yazı 2-->
+     
 
       <div class="yazilar">
 
@@ -187,7 +193,7 @@
   
       </div>
       
-      <!--Yazı 3-->
+      
       
       <div class="yazilar">
 
@@ -229,10 +235,7 @@
   
       </div>
 
-      <!--Yazı 4-->
-
-
-      <!--Yazı 5-->
+      
 
       <div class="yazilar">
 
@@ -274,7 +277,7 @@
   
       </div>
 
-
+ -->
 
 
 
@@ -396,9 +399,11 @@
 
                   $.each(yazilar,function(index, item){
                     console.log(item["icerik"]);
-                    var a = [];
-                    a[0] = item["icerik"];
-                    a = $.map(a,function(str, i){
+
+                    
+                    var icerikMetin = [];
+                    icerikMetin[0] = item["icerik"];
+                    icerikMetin = $.map(icerikMetin,function(str, i){
                       return $("<div/>").html(str).text();
                     })
 
@@ -418,15 +423,15 @@
                                 '</div>'+
                                 '<div class="icerik-ana">' +
                                   '<p class="icerik-ana-text">' +
-                                    a +
+                                    icerikMetin +
                                   '</p>'+
                                 '</div>'+
                               '</div>'+
 
                               '<div class="yazi-bilgi">'+
-                                '<p class="yazi-bilgi-tarih">24 Kasım</p>'+
+                                '<p class="yazi-bilgi-tarih"> ' + item["tarih"] + '</p>'+
                                 '<div class="yazi-bilgi-nokta"></div>' +
-                                '<p class="yazi-bilgi-okuma-suresi">' +' 2 dk okuma'+'</p>'+
+                                '<p class="yazi-bilgi-okuma-suresi">' + OkumaSuresiHesapla(item["icerik"]) +'</p>'+
                             ' </div>'+
 
                             '</div>'+
@@ -451,6 +456,21 @@
             }
 
 
+            //Okuma Süresini hesaplayan fonksiyon
+            function OkumaSuresiHesapla(metin){
+              //Burada bir metnin kelime sayısını bir dakikada okunan ortalama kelime sayısına bölüyorum. Ve ardından Math kütüphanesinin ceil fonksiyonunu kullarak yuvarlıyorum.
+              var birDakikadaOkunanOrtalamaKelimeSayisi = 200;
+              metinKelimeSayisi = metin.split(" ").length; //Burda boşluğa göre metni bölüp kelime sayısını buluyorum!
+              var hesaplananSure = Math.ceil(metinKelimeSayisi / birDakikadaOkunanOrtalamaKelimeSayisi);
+              //alert(hesaplananSure);
+              return "~" + hesaplananSure + " dk";
+            }
+
+
+            //Eğer kullanıcı giriş yaptıysa giriş ikonu yerine çıkış ikonunu koy
+            if(localStorage.getItem('auth-user') != null){
+              //alert(localStorage.getItem('auth-user'));
+            }
             
           });
       </script>

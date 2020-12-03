@@ -671,8 +671,14 @@
                     var icerik = $("#content-input").html();
                     var etiketinput =  $("span.tag-content").text();
                     var etiketler = JSON.stringify(tags);
-                    var onay = "true";
-                    var anaresim = $(".post-image").attr("src");
+                    var onay = "false";
+                    var anaresim = "uploads/undefined-image.jpeg";
+
+                    var resimUrl = $(".post-image").attr("src");
+                    //alert(jQuery.type(resimUrl));
+                    if(resimUrl != null){
+                        anaresim = resimUrl;
+                    }
                     // $.each(tags, function(index, item){
                     //     alert(tags[index]);
                     // })
@@ -690,6 +696,7 @@
                         dataType: "JSON",
                         success: function(cevap) {
                             console.log(cevap);
+                            //alert(cevap);
                         },
                         error: function(err) {
                             console.log(err);      

@@ -1,0 +1,870 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link href="https://cdn.lineicons.com/2.0/LineIcons.css" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/1389171202.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+    <script src="./jQuery/jquery-3.5.1.min.js"></script>
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/dashboard.css">
+    <script
+  src="https://code.jquery.com/jquery-3.5.1.js"
+  integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+  crossorigin="anonymous"></script>
+</head>
+<body>
+    <!-- <div class="header">
+        <img src="./images/logo.png" alt="" class="logo">
+
+        <div class="checkbox-container">
+          <input type="checkbox" class="checkbox" id="darkmode-checkbox" />
+          <label class="label" for="darkmode-checkbox">
+              <i class="fas fa-moon"></i>
+              <i class="fas fa-sun"></i>
+              <div class="ball"></div>
+          </label>
+        </div>
+    </div>
+
+    <div class="mobile-navigation">
+      <div class="mobile-navigation-home">
+        <i class="lni lni-home lni-32"></i>
+      </div>
+      <div class="mobile-navigation-add">
+        <a href="editor.html" class="editor-link">
+          <i class="lni lni-plus lni-32"></i>
+        </a>
+      </div>
+      <div class="mobile-navigation-login">
+        <a href="signin.html" class="sign-in-link">
+          <i class="lni lni-user lni-32"></i>
+        </a>
+      </div>
+    </div>
+     -->
+    <div class="main" >
+        <div class="sol-menu" >
+            <img src="./images/logo.png" alt="" class="dashboard-logo">
+            <button class="yazi-ekle-button">
+                Yazı Ekle
+            </button>
+            <button class="menu-button" id="anasayfa-button">
+                <i class="fas fa-chevron-right" style="float: right;"></i>
+                <p style="float: left;">Anasayfa</p>
+                
+            </button>
+
+            <button class="menu-button" id="yayinlananlar-button">
+                <i class="fas fa-chevron-right" style="float: right;"></i>
+                <p style="float: left;">Yayınlananlar</p>
+                
+            </button>
+
+
+            <button class="menu-button" id="bekleyen-yazilar-button">
+                <i class="fas fa-chevron-right" style="float: right;"></i>
+                <p style="float: left;">Bekleyenler</p>
+                
+            </button>
+
+            <button class="menu-button" id="kullanicilar-button">
+                <i class="fas fa-chevron-right" style="float: right;"></i>
+                <p style="float: left;">Kullanıcılar</p>
+                
+            </button>
+            <button class="menu-button" id="bekleyen-kullanicilar-button">
+              <i class="fas fa-chevron-right" style="float: right;"></i>
+              <p style="float: left;">Bekleyen Kullanıcılar</p>
+              
+          </button>
+            <button class="menu-button">
+                <i class="fas fa-chevron-right" style="float: right;"></i>
+                <p style="float: left;">Yorumlar</p>
+                
+            </button>
+
+            <button class="menu-button" id="cikis" style="background-color: #d63031;">
+              <i class="fas fa-chevron-right" style="float: right; color: white;"></i>
+              <p style="float: left; color: white; font-weight: bold;" >Çıkış yap</p>
+              
+          </button>
+        </div>
+        <div class="panel">
+          <div class="icerik-liste-panel">
+            <p class="icerik-listesi-panel-baslik">YAYINLANANLAR</p>
+            <div class="icerik-baslik">
+              
+            </div>
+            <!-- <div class="icerik">
+              <div class="id">
+                <p class="p-id">
+                  1
+                </p>
+              </div>
+              <div class="baslik">
+                <p class="p-baslik">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. At animi asperiores cupiditate! Delectus recusandae quibusdam, esse laborum a tempora perspiciatis illo magnam temporibus id deserunt asperiores fugiat facilis doloremque totam.
+                </p>
+              </div>
+              <div class="yazar">
+                <p class="p-yazar">
+                  ozgurkurucan337@gmail.com
+                </p>
+              </div>
+              <i class="far fa-trash-alt"></i>
+              <i class="far fa-edit"></i>
+            </div>
+
+            <div class="icerik">
+              <div class="id">
+                <p class="p-id">
+                  2
+                </p>
+              </div>
+              <div class="baslik">
+                <p class="p-baslik">
+                  Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ducimus, dolorum. Laudantium illo libero et quos ratione, blanditiis consectetur magni, ducimus minima quo amet possimus praesentium vitae maxime ad autem quidem.
+                </p>
+              </div>
+              <div class="yazar">
+                <p class="p-yazar">
+                  ozgurkurucan337@gmail.com
+                </p>
+              </div>
+              <i class="far fa-trash-alt"></i>
+              <i class="far fa-edit"></i>
+            </div>
+
+            <div class="icerik">
+              <div class="id">
+                <p class="p-id">
+                  3
+                </p>
+              </div>
+              <div class="baslik">
+                <p class="p-baslik">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel delectus aperiam a facilis optio velit debitis, modi corrupti architecto sequi nihil voluptatum autem omnis non consectetur officiis ratione odio officia.
+                </p>
+              </div>
+              <div class="yazar">
+                <p class="p-yazar">
+                  ozgurkurucan337@gmail.com
+                </p>
+              </div>
+              <i class="far fa-trash-alt"></i>
+              <i class="far fa-edit"></i>
+            </div>
+
+            <div class="icerik">
+              <div class="id">
+                <p class="p-id">
+                  4
+                </p>
+              </div>
+              <div class="baslik">
+                <p class="p-baslik">
+                  Lorem, ipsum dolor sit amet consectetur adipisicing elit. Earum non doloribus libero illo, et deleniti voluptas ipsum temporibus ducimus commodi quidem quia minus, reprehenderit vero, veniam magnam tenetur delectus aspernatur.
+                </p>
+              </div>
+              <div class="yazar">
+                <p class="p-yazar">
+                  ozgurkurucan337@gmail.com
+                </p>
+              </div>
+              <i class="far fa-trash-alt"></i>
+              <i class="far fa-edit"></i>
+            </div>
+            
+            <div class="icerik">
+              <div class="id">
+                <p class="p-id">
+                  5
+                </p>
+              </div>
+              <div class="baslik">
+                <p class="p-baslik">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos ea commodi, quia quos veritatis molestias porro recusandae accusantium voluptatibus nam dolorem modi tenetur! Nisi nobis iure inventore impedit unde maiores.
+                </p>
+              </div>
+              <div class="yazar">
+                <p class="p-yazar">
+                  ozgurkurucan337@gmail.com
+                </p>
+              </div>
+              <i class="far fa-trash-alt"></i>
+              <i class="far fa-edit"></i>
+            </div>
+
+            <div class="icerik">
+              <div class="id">
+                <p class="p-id">
+                  6
+                </p>
+              </div>
+              <div class="baslik">
+                <p class="p-baslik">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem, eligendi natus officiis rerum nulla numquam delectus ipsa ex quaerat laborum assumenda sint! Eos quod explicabo, ex dicta assumenda possimus in.
+                </p>
+              </div>
+              <div class="yazar">
+                <p class="p-yazar">
+                  ozgurkurucan337@gmail.com
+                </p>
+              </div>
+              <i class="far fa-trash-alt"></i>
+              <i class="far fa-edit"></i>
+            </div>
+
+            <div class="icerik">
+              <div class="id">
+                <p class="p-id">
+                  7
+                </p>
+              </div>
+              <div class="baslik">
+                <p class="p-baslik">
+                  Lorem, ipsum dolor sit amet consectetur adipisicing elit. Earum beatae quaerat tempore itaque natus mollitia molestiae nobis soluta qui id repellat quo harum vel, voluptatibus magnam labore esse illum? Voluptas.
+                </p>
+              </div>
+              <div class="yazar">
+                <p class="p-yazar">
+                  ozgurkurucan337@gmail.com
+                </p>
+              </div>
+              <i class="far fa-trash-alt"></i>
+              <i class="far fa-edit"></i>
+            </div>
+
+            <div class="icerik">
+              <div class="id">
+                <p class="p-id">
+                  8
+                </p>
+              </div>
+              <div class="baslik">
+                <p class="p-baslik">
+                  Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tempora expedita corporis, dignissimos libero rem debitis vitae id itaque, sit ut hic cumque nam saepe eveniet reprehenderit quasi impedit incidunt nisi.
+                </p>
+              </div>
+              <div class="yazar">
+                <p class="p-yazar">
+                  ozgurkurucan337@gmail.com
+                </p>
+              </div>
+              <i class="far fa-trash-alt"></i>
+              <i class="far fa-edit"></i>
+            </div>
+
+            <div class="icerik">
+              <div class="id">
+                <p class="p-id">
+                  9
+                </p>
+              </div>
+              <div class="baslik">
+                <p class="p-baslik">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate vero harum animi, tempore ut ab atque non nemo quidem, officiis, earum magnam fuga impedit nulla mollitia sed aliquid perferendis sapiente.
+                </p>
+              </div>
+              <div class="yazar">
+                <p class="p-yazar">
+                  ozgurkurucan337@gmail.com
+                </p>
+              </div>
+              <i class="far fa-trash-alt"></i>
+              <i class="far fa-edit"></i>
+            </div>
+
+            <div class="icerik">
+              <div class="id">
+                <p class="p-id">
+                  10
+                </p>
+              </div>
+              <div class="baslik">
+                <p class="p-baslik">
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur aut totam error ut repellat tenetur natus sunt iusto asperiores ducimus, at quidem neque corrupti ullam dignissimos vel voluptatum voluptatibus. Rerum!
+                </p>
+              </div>
+              <div class="yazar">
+                <p class="p-yazar">
+                  ozgurkurucan337@gmail.com
+                </p>
+              </div>
+              <i class="far fa-trash-alt"></i>
+              <i class="far fa-edit"></i>
+            </div>
+
+            <div class="icerik">
+              <div class="id">
+                <p class="p-id">
+                  3
+                </p>
+              </div>
+              <div class="baslik">
+                <p class="p-baslik">
+                  Lorem, ipsum dolor sit amet consectetur adipisicing elit. Error aperiam culpa assumenda inventore ut consequuntur pariatur dolores ratione! Odio, amet veritatis! Expedita exercitationem accusantium ex obcaecati voluptas, deserunt aut aliquid?
+                </p>
+              </div>
+              <div class="yazar">
+                <p class="p-yazar">
+                  ozgurkurucan337@gmail.com
+                </p>
+              </div>
+              <i class="far fa-trash-alt"></i>
+              <i class="far fa-edit"></i>
+            </div>
+
+            <div class="icerik">
+              <div class="id">
+                <p class="p-id">
+                  4
+                </p>
+              </div>
+              <div class="baslik">
+                <p class="p-baslik">
+                  Lorem ipsum
+                </p>
+              </div>
+              <div class="yazar">
+                <p class="p-yazar">
+                  ozgurkurucan337@gmail.com
+                </p>
+              </div>
+              <i class="far fa-trash-alt"></i>
+              <i class="far fa-edit"></i>
+            </div>
+            <div class="icerik">
+              <div class="id">
+                <p class="p-id">
+                  1
+                </p>
+              </div>
+              <div class="baslik">
+                <p class="p-baslik">
+                  Lorem ipsum
+                </p>
+              </div>
+              <div class="yazar">
+                <p class="p-yazar">
+                  ozgurkurucan337@gmail.com
+                </p>
+              </div>
+              <i class="far fa-trash-alt"></i>
+              <i class="far fa-edit"></i>
+            </div>
+
+            <div class="icerik">
+              <div class="id">
+                <p class="p-id">
+                  2
+                </p>
+              </div>
+              <div class="baslik">
+                <p class="p-baslik">
+                  Lorem ipsum
+                </p>
+              </div>
+              <div class="yazar">
+                <p class="p-yazar">
+                  ozgurkurucan337@gmail.com
+                </p>
+              </div>
+              <i class="far fa-trash-alt"></i>
+              <i class="far fa-edit"></i>
+            </div>
+
+            <div class="icerik">
+              <div class="id">
+                <p class="p-id">
+                  3
+                </p>
+              </div>
+              <div class="baslik">
+                <p class="p-baslik">
+                  Lorem ipsum
+                </p>
+              </div>
+              <div class="yazar">
+                <p class="p-yazar">
+                  ozgurkurucan337@gmail.com
+                </p>
+              </div>
+              <i class="far fa-trash-alt"></i>
+              <i class="far fa-edit"></i>
+            </div>
+
+            <div class="icerik">
+              <div class="id">
+                <p class="p-id">
+                  4
+                </p>
+              </div>
+              <div class="baslik">
+                <p class="p-baslik">
+                  Lorem ipsum
+                </p>
+              </div>
+              <div class="yazar">
+                <p class="p-yazar">
+                  ozgurkurucan337@gmail.com
+                </p>
+              </div>
+              <i class="far fa-trash-alt"></i>
+              <i class="far fa-edit"></i>
+            </div> -->
+          </div>
+        </div>
+    </div>
+
+
+
+
+
+
+    <script>
+      $(document).ready(function(){
+
+        
+        $("#anasayfa-button").on("click",function(){
+
+            window.location.href = "https://localhost/Blog/index.html";
+
+        })
+
+
+        $(".yazi-ekle-button").on("click",function(){
+
+           window.location.href = "https://localhost/Blog/editor.html";
+
+        })
+
+        //yayınlananlar isimli butonun tıklandığında çalıştracağı fonksiyon
+        $("#yayinlananlar-button").on("click",function(){
+          $(".icerik").remove();
+          $(".icerik-listesi-panel-baslik").remove();
+            YazilariGetir();
+        });
+
+        //bekleyenler isimli butonun tıklandığında çalıştracağı fonksiyon
+        $("#bekleyen-yazilar-button").on("click",function(){
+          $(".icerik").remove();
+          $(".icerik-listesi-panel-baslik").remove();
+          BekleyenYazilariGetir();
+        });
+
+        $("#kullanicilar-button").on("click",function(){
+          $(".icerik").remove();
+          $(".icerik-listesi-panel-baslik").remove();
+          KullanicilariGetir();
+        })
+
+
+        //Silme butonu
+        $(document).on("click","#yazi-sil",function(){
+          var id = $(this).parent().find(".p-id").text();
+          var hangibolumde = $(this).parent().parent().find(".icerik-listesi-panel-baslik").text();
+          Sil("yazilar",id);
+          $(".icerik").remove();
+          $(".icerik-listesi-panel-baslik").remove();
+          YazilariGetir();
+        });
+        
+      
+      $(document).on("click","#yaziyi-onayla",function(){
+        var id = $(this).parent().find(".p-id").text();
+
+        Onayla(id);
+        $(".icerik").remove();
+        $(".icerik-listesi-panel-baslik").remove();
+        BekleyenYazilariGetir();
+      });
+
+      $(document).on('click','#yaziyi-reddet',function(){
+        var id = $(this).parent().find(".p-id").text();
+        //var hangibolumde = $(this).parent().parent().find(".icerik-listesi-panel-baslik").text();
+        Sil("yazilar",id);
+        $(".icerik").remove();
+        $(".icerik-listesi-panel-baslik").remove();
+        BekleyenYazilariGetir();
+      })
+
+      $(document).on("click","#kullanici-sil",function(){
+        var id = $(this).parent().find(".p-id").text();
+        //var hangibolumde = $(this).parent().parent().find(".icerik-listesi-panel-baslik").text();
+        KullaniciSil(id);
+        $(".icerik").remove();
+        $(".icerik-listesi-panel-baslik").remove();
+        KullanicilariGetir();
+      })
+
+      $(document).on("click","#bekleyen-kullanicilar-button",function(){
+        var id = $(this).parent().find(".p-id").text();
+        //var hangibolumde = $(this).parent().parent().find(".icerik-listesi-panel-baslik").text();
+        
+        $(".icerik").remove();
+        $(".icerik-listesi-panel-baslik").remove();
+        BekleyenKullanicilariGetir();
+      })
+        function YazilariGetir(){
+      
+            $.ajax({
+              type: "GET",
+              url : "backend/yazilarigetir.php",
+              success : function(response){
+                console.log(JSON.parse(response));
+                
+                var yazilar = JSON.parse(response);
+                var baslik = '<p class="icerik-listesi-panel-baslik">YAYINLANANLAR</p>';
+                $(".icerik-liste-panel").append(baslik);
+                $.each(yazilar,function(index, item){
+                  console.log(item["icerik"]);
+
+                  
+                  var icerikMetin = [];
+                  icerikMetin[0] = item["icerik"];
+                  icerikMetin = $.map(icerikMetin,function(str, i){
+                    return $("<div/>").html(str).text();
+                  })
+
+                        var icerikkarti = '<div class="icerik">'+
+                    '<div class="id">'+
+                      '<p class="p-id">' +
+                        + item["id"] +
+                      '</p>'+
+                    '</div>' +
+                    '<div class="baslik">' +
+                      '<p class="p-baslik">' +
+                        item["baslik"] +
+                      '</p>' +
+                    '</div>' +
+                    '<div class="yazar">'+
+                      '<p class="p-yazar">' + 
+                        "ozgurkurucan337@gmail.com" +
+                      '</p>'+
+                    '</div>'+
+                    '<i class="far fa-trash-alt" id="yazi-sil"></i>'+
+                    '<i class="far fa-edit"></i>' +
+                  '</div>';
+
+                      
+                        
+                      $(".icerik-liste-panel").append(icerikkarti);
+                })
+              }
+            })
+            }
+
+
+
+
+
+      function BekleyenYazilariGetir(){
+      
+              $.ajax({
+                type: "GET",
+                url : "backend/bekleyenyazilarigetir.php",
+                success : function(response){
+                  console.log(JSON.parse(response));
+                  
+                  var yazilar = JSON.parse(response);
+                  var baslik = '<p class="icerik-listesi-panel-baslik">BEKLEYENLER</p>';
+                  $(".icerik-liste-panel").append(baslik);
+
+                  $.each(yazilar,function(index, item){
+                    console.log(item["icerik"]);
+
+                    
+                    var icerikMetin = [];
+                    icerikMetin[0] = item["icerik"];
+                    icerikMetin = $.map(icerikMetin,function(str, i){
+                      return $("<div/>").html(str).text();
+                    })
+
+                          var icerikkarti = '<div class="icerik">'+
+                      '<div class="id">'+
+                        '<p class="p-id">' +
+                          + item["id"] +
+                        '</p>'+
+                      '</div>' +
+                      '<div class="baslik">' +
+                        '<p class="p-baslik">' +
+                          item["baslik"] +
+                        '</p>' +
+                      '</div>' +
+                      '<div class="yazar">'+
+                        '<p class="p-yazar">' + 
+                          "ozgurkurucan337@gmail.com" +
+                        '</p>'+
+                      '</div>'+
+                      '<i class="far fa-check-circle" id="yaziyi-onayla"></i>'+
+                    '<i class="far fa-times-circle" id="yaziyi-reddet"></i>' +
+                    '</div>';
+
+
+                          
+                        $(".icerik-liste-panel").append(icerikkarti);
+                  })
+                }
+              })
+            }
+
+
+
+            function KullanicilariGetir(){
+              $.ajax({
+              type: "GET",
+              url : "backend/kullanicilarigetir.php",
+              success : function(response){
+                console.log(JSON.parse(response));
+                
+                var yazilar = JSON.parse(response);
+                var baslik = '<p class="icerik-listesi-panel-baslik">KULLANICILAR</p>';
+                $(".icerik-liste-panel").append(baslik);
+
+                $.each(yazilar,function(index, item){
+                  console.log(item["icerik"]);
+                  
+                  console.log(item["tip"])
+                  var icerikMetin = [];
+                  icerikMetin[0] = item["icerik"];
+                  icerikMetin = $.map(icerikMetin,function(str, i){
+                    return $("<div/>").html(str).text();
+                  })
+                    var silmeikonu = '<i class="far fa-trash-alt" id="kullanici-sil"></i>';
+                    
+                        var icerikkarti = '<div class="icerik" id="'+ item["id"] +'">'+
+                    '<div class="id">'+
+                      '<p class="p-id">' +
+                        + item["id"] +
+                      '</p>'+
+                    '</div>' +
+                    '<div class="baslik">' +
+                      '<p class="p-baslik">' +
+                        item["email"] +
+                      '</p>' +
+                    '</div>' +
+                    '<div class="yazar">'+
+                      '<select id="tip-secimi">' + 
+                           YetkiAyari(item) +
+                      '</select>'+
+                    '</div>'+
+                      silmeikonu +
+                    '<i class="far fa-edit"></i>' +
+                  '</div>';
+
+                  
+                        
+                  $(".icerik-liste-panel").append(icerikkarti);
+
+                  if(item["tip"] == "admin"){
+                      //$(".fa-trash-alt").css("display","none");
+                      
+                  }
+
+                })
+              }
+            })
+            }
+
+
+          function BekleyenKullanicilariGetir(){  
+            $.ajax({
+              type: "GET",
+              url : "backend/bekleyenkullanicilarigetir.php",
+              success : function(response){
+                console.log(JSON.parse(response));
+                
+                var yazilar = JSON.parse(response);
+                var baslik = '<p class="icerik-listesi-panel-baslik">BEKLEYEN KULLANICILAR</p>';
+                $(".icerik-liste-panel").append(baslik);
+
+                $.each(yazilar,function(index, item){
+                  console.log(item["icerik"]);
+
+                  console.log(item["tip"])
+                  var icerikMetin = [];
+                  icerikMetin[0] = item["icerik"];
+                  icerikMetin = $.map(icerikMetin,function(str, i){
+                    return $("<div/>").html(str).text();
+                  })
+                    
+                  
+                    
+                        var icerikkarti = '<div class="icerik" id="'+ item["id"] +'">'+
+                    '<div class="id">'+
+                      '<p class="p-id">' +
+                        + item["id"] +
+                      '</p>'+
+                    '</div>' +
+                    '<div class="baslik">' +
+                      '<p class="p-baslik">' +
+                        item["email"] +
+                      '</p>' +
+                    '</div>' +
+                    '<div class="yazar">'+
+                      '<select id="tip-secimi">' + 
+                          YetkiAyari(item) +
+                      '</select>'+
+                    '</div>'+
+                    '<div class="yetki">' +
+                      
+                    '</div>' +
+                    '<i class="far fa-check-circle" id="kullanici-onayla"></i>'+
+                    '<i class="far fa-times-circle" id="kullanici-reddet"></i>' +
+                  '</div>';
+
+                 
+                        
+                  $(".icerik-liste-panel").append(icerikkarti);
+                  
+                  
+                  
+
+                })
+              }
+            })
+          }
+          
+          $(document).on("click","#kullanici-onayla",function(){
+            var id = $(this).parent().attr("id");
+            KullaniciOnayla(id);
+            //alert(id);
+            $(".icerik").remove();
+            $(".icerik-listesi-panel-baslik").remove();
+            BekleyenKullanicilariGetir();
+          });
+
+          $(document).on("click","#kullanici-reddet",function(){
+            var id = $(this).parent().attr("id");
+            KullaniciReddet(id);
+            //alert(id);
+            $(".icerik").remove();
+            $(".icerik-listesi-panel-baslik").remove();
+            BekleyenKullanicilariGetir();
+          });
+
+          //Yetki ayarı yapıldığında çalışacak!
+          $(document).on("change","#tip-secimi",function(){
+            var id = $(this).parent().parent().attr("id");
+            var yetkiismi = $(this).val();
+            //alert(yetkiismi);
+            YetkiVer(id,yetkiismi);
+          })
+
+          function YetkiAyari(item){
+            var donenayar;
+            if(item["tip"] == "admin"){
+                    var secenekayari = '<option value="admin" selected> Admin </option>' +
+                          '<option value="editor"> Editor </option>';
+                          //$(".icerik").find("#tip-secimi").append(secenekayari)
+                          donenayar = secenekayari;
+                  }else{
+                    var secenekayari = '<option value="admin"> Admin </option>' +
+                          '<option value="editor" selected> Editor </option>';
+                         donenayar = secenekayari;
+                          //$(".icerik").find("#tip-secimi").append(secenekayari)
+                  }
+            return donenayar;
+          }
+
+          function Sil(tablo,id){
+            var tabloadi = tablo;
+            var gelenid = id;
+            $.ajax({
+              type: "POST",
+              url : "backend/yazisil.php",
+              data: {tablo: tabloadi, id : gelenid},
+              dataType : "JSON",
+              success : function(response){
+                // var mesaj = JSON.parse(response);
+                console.log(response);
+                //alert(response);
+                
+              },
+              error: function(response){
+                console.log(response);
+                // var mesaj = JSON.parse(response);
+                // console.log(mesaj);
+                //alert(response["responseText"]);
+              }
+            })
+          }
+
+
+          function Onayla(id){
+            var gelenid = id;
+            $.ajax({
+              type: "POST",
+              url : "backend/yazionayla.php",
+              data: {id: gelenid},
+              dataType : "JSON",
+              success : function(response){
+                console.log(response);
+              }
+            })
+          }
+
+
+
+        function KullaniciSil(id){
+          var gelenid = id;
+            $.ajax({
+              type: "POST",
+              url : "backend/kullanicisil.php",
+              data: {id: gelenid},
+              dataType : "JSON",
+              success : function(response){
+                console.log(response);
+              }
+            })
+        }
+
+        function KullaniciOnayla(id){
+          var gelenid = id;
+            $.ajax({
+              type: "POST",
+              url : "backend/kullanicionayla.php",
+              data: {id: gelenid},
+              dataType : "JSON",
+              success : function(response){
+                console.log(response);
+              }
+            })
+        }
+
+        function YetkiVer(id, gelenyetki){
+          //İD ve isim gönder
+          var gelenid = id;
+          var yeniyetki = gelenyetki;
+            $.ajax({
+              type: "POST",
+              url : "backend/yetkilendir.php",
+              data: {id: gelenid, tip : gelenyetki},
+              dataType : "JSON",
+              success : function(response){
+                console.log(response);
+              }
+            })
+        }
+
+        function KullaniciReddet(id){
+            var gelenid = id;
+            $.ajax({
+              type: "POST",
+              url : "backend/kullanicisil.php",
+              data: {id: gelenid},
+              dataType : "JSON",
+              success : function(response){
+                console.log(response);
+              }
+            })
+        }
+    })
+    </script>
+</body>
+</html>

@@ -319,7 +319,7 @@ body::-webkit-scrollbar{
     font-size: 18px;
     padding-left: 5px;
     padding-top: 10px;
-    padding-right: 2px;
+    padding-right: 5px;
     color: #e5e5e5;
     overflow: hidden;
     text-overflow: ellipsis;

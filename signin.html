@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link class="color-mode-link" rel="stylesheet" href="css/sign-style.css">
+    <link class="color-mode-link" rel="stylesheet" href="css/dark.css">
+    <script
+  src="https://code.jquery.com/jquery-3.5.1.js"
+  integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+  crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/1389171202.js" crossorigin="anonymous"></script>
+    <link href="https://cdn.lineicons.com/2.0/LineIcons.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/animations.css">
+<body>
+
+    <div class="header">
+        <img src="./images/logo.png" alt="" class="logo">
+
+        <div class="checkbox-container">
+          <input type="checkbox" class="checkbox" id="darkmode-checkbox" />
+          <label class="label" for="darkmode-checkbox">
+              <i class="fas fa-moon"></i>
+              <i class="fas fa-sun"></i>
+              <div class="ball"></div>
+          </label>
+        </div>
+    </div>
+
+
+    <div class="mobile-navigation">
+        <div class="mobile-navigation-home">
+          <a href="index.html" class="home-link">
+            <i class="lni lni-home lni-32"></i>
+          </a>
+        </div>
+        <div class="mobile-navigation-add">
+          <a href="editor.html" class="editor-link">
+            <i class="lni lni-plus lni-32"></i>
+          </a>
+        </div>
+        <div class="mobile-navigation-login">
+          <a href="mobile-signin.html" class="sign-in-link">
+            <i class="lni lni-user lni-32"></i>
+          </a>
+        </div>
+      </div>
+
+    <div class="sign-main">
+        <div class="sign-in">
+            <div class="sign-in-image-container">
+                <img class="sign-in-image" src="./images/sign.svg" alt="">
+            </div>
+            <div class="sign-in-components">
+                <p class="sign-in-header">Kayıt Ol!</p>
+                <input id="email" type="text" class="sign-in-email" placeholder="E-mail Adresinizi Girin">
+                <input id="sifre" type="password" class="sign-in-password" placeholder="Şifrenizi Girin">
+                <div class="sign-in-buttons-container">
+                    <button class="sign-in-button" id="kayit-button">Kaydol</button>
+                    <button class="sign-up-button" id="giris-button">Giriş Yap</button>
+                </div>
+            </div>
+            
+          </div>
+    </div>
+
+
+
+    <script>
+        $(document).ready(function(){
+
+            CheckMode();
+            //Dark mode Chechbox
+            $("#darkmode-checkbox").change(function(){
+                //alert();
+                if($(this).is(":checked")){
+                    $(this).attr("checked", true);
+                    if($(this).attr("checked")){
+                        //Eğer check edildiyse karanlık moda geçir!
+                        $("#color-mode-link").attr("href","./css/light.css");
+                        $(".logo").attr("src","./images/logo.png");
+                        //Mod için cookie ayarlıyorum
+                        localStorage.setItem('dark-mode','false');
+                        $(".ball").css({'transform' : 'translateX(24px)'});
+                        //alert(localStorage.getItem('dark-mode'));
+                    }
+                }else{
+                    $(this).attr("checked", false);
+                    if(!$(this).attr("checked")){
+                        //Eğer check edildiyse karanlık moda geçir!
+                        $("#color-mode-link").attr("href","./css/dark.css").fadeIn(1000);
+                        $(".logo").attr("src","./images/logo-dark.png");
+                        //Mode için cookie ayarlıyorum
+                        
+                        localStorage.setItem('dark-mode','true');
+                        $(".ball").css({'transform' : 'translateX(0px)'});
+                        //alert(localStorage.getItem('dark-mode'));
+                        
+                    }
+                }
+            });
+
+            //Seçili modu kontrol ederek sayfa yenilense bile modun sabit kalmasını sağlar
+            function CheckMode(){
+                var mode = localStorage.getItem('dark-mode');
+                if(mode == 'true'){
+                    //alert("Dark mode aktif");
+                    $("#color-mode-link").attr("href","./css/dark.css").fadeIn(1000);
+                    $(".logo").attr("src","./images/logo-dark.png");
+                    //$(".ball").css({'transform' : 'translateX(0px)'});
+                    
+                    //$("#darkmode-checkbox").attr("checked",false);
+                }else{
+                    //alert("Light mode aktif!")
+                    $("#color-mode-link").attr("href","css/light.css").fadeIn(1000);
+                    $(".logo").attr("src","./images/logo.png");
+                    //$(".ball").css({left:25});
+                    //$(".ball").css({'transform' : 'translateX(24px)','transition' : 'transform 0.2s linear'})
+                   $(".ball").css({'transform' : 'translateX(24px)'});
+                }
+            }
+
+
+
+            //Kayıt Butonuna Basılınca Post İle Kayıt Yapma
+            $("#kayit-button").on("click",function(){
+
+                var email = $("#email").val();
+                var sifre = $("#sifre").val();
+                //alert(email + sifre);
+                //Ajax Post İşlemi
+                $.ajax({
+                        type: "POST",
+                        url: "backend/kullanicikayit.php",
+                        data: {email : email, sifre : sifre},
+                        dataType: "JSON",
+                        success: function(cevap) {
+                            console.log(cevap);
+                        },
+                        error: function(err) {
+                            console.log(err);      
+                        }
+                    });
+            });
+
+
+            //Eğer Kayıt Varsa Ve Kullanıcı adı ve şifre doğruysa oturum aç!
+            $("#giris-button").on("click",function(){
+
+                var email = $("#email").val();
+                var sifre = $("#sifre").val();
+                //alert(email + sifre);
+                //Ajax Post İşlemi
+                $.ajax({
+                        type: "POST",
+                        url: "backend/kullanicigiris.php",
+                        data: {email : email, sifre : sifre},
+                        dataType: "JSON",
+                        success: function(cevap) {
+                            //var mesaj = JSON.parse(cevap);
+                            console.log(cevap);
+
+                            if(cevap){
+                                localStorage.setItem('auth-user',email);
+                               window.location.href = "https://localhost/Blog/index.html";
+                            }else{
+                                console.log("yakalandıııı");
+                            }
+                            
+                        },
+                        error: function(err) {
+                            var mesaj = JSON.parse(cevap);
+                            console.log(mesaj[0]);
+                        }
+                });
+            })
+
+            //!!! Kullanıcı giriş yapınca insan iconu yerine çıkış ikonu gelecek!
+        });
+    </script>
+
+</body>
+</html>

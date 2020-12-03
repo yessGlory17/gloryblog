@@ -1,0 +1,202 @@
+.main{
+    display: flex;
+    flex-direction: row;
+
+}
+.panel{
+    width: 80%;
+    margin-top: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.dashboard-logo{
+    width: 120px;
+    height: 60px;
+    margin-top: 20px;
+    margin-left: 50px;
+}
+.sol-menu{
+    width: 250px; 
+    height: 100vh;
+    /* border: 1px solid green; */
+    float: left;
+    /* border-right: 1px solid #C0C0C6; */
+    box-shadow: 0 5px 13px rgba(0, 0, 0, 0.3);
+    position: fixed;
+    z-index: 1;
+}
+.yazi-ekle-button{
+    width: 80%;
+    height: 50px;
+    background-color: #00B97F;
+    border-radius: 5px;
+    margin-left: 20px;
+    margin-top: 20px;
+    font-family: 'Roboto', sans-serif;
+    margin-bottom: 30px;
+    color: white;
+    cursor: pointer;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+.menu-button{
+    width: 90%;
+    font-size: 18px;
+    font-family: 'Roboto', sans-serif;
+    /* font-weight: bold; */
+    /* border: 1px solid blue; */
+    padding-left: 14px;
+    padding-right: 14px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    background-color: white;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    margin-left:20px;
+    color: #86878b;
+    cursor: pointer;
+    border-radius: 10px;
+    transition: background-color .5s linear, color .5s;
+}
+.menu-button:hover{
+    background-color: #F5F5F5;
+    color: black;
+    transition: background-color .5s linear, color .5s;
+}
+.fa-chevron-right{
+    font-size: 15px;
+    padding-left: 5px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+}
+
+
+/*Yayımlanmış yazılar liste*/
+.icerik-liste-panel{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: 500px;
+    /* border: 1px solid red; */
+}
+.icerik{
+    width: 70vw;
+    height: 50px;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+    /* border: 1px solid #C0C0C6; */
+    margin-top: 10px;
+  }
+  .id{
+    width: 50px;
+    height: 50px;
+    float: left;
+    margin-left: 0px;
+    border-radius: 5px 0px 0px 5px;
+  }
+  .p-id{
+    font-size: 20px;
+    font-family: 'Roboto', sans-serif;
+    padding-left: 20px;
+    padding-top: 15px;
+    color: #86878b;
+  }
+  .baslik{
+    width: 30vw;
+    height: 50px;
+    float: left;
+    margin-left: 5px;
+  }
+  .p-baslik{
+    font-size: 20px;
+    font-family: 'Roboto', sans-serif;
+    padding-left: 20px;
+    padding-top: 15px;
+     overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+  }
+  .yazar{
+    width: 20vw;
+    height: 50px;
+    float: left;
+    margin-left: 5px;
+  }
+  .p-yazar{
+    font-size: 20px;
+    font-family: 'Roboto', sans-serif;
+    padding-left: 20px;
+    padding-top: 15px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    color: #86878b;
+  }
+  .fa-trash-alt{
+    font-size: 20px;
+    padding-top: 15px;
+    padding-right: 20px;
+    float: right;
+    cursor: pointer;
+    color : #ff7675;
+  }
+  .fa-trash-alt:hover{
+    color : red;
+  }
+  .fa-edit{
+    font-size: 20px;
+    padding-top: 15px;
+    padding-right: 20px;
+    float: right;
+    cursor: pointer;
+    color : #74b9ff;
+  }
+.fa-times-circle{
+  font-size: 20px;
+  padding-top: 15px;
+  padding-right: 20px;
+  float: right;
+  cursor: pointer;
+  color : #ff7675;
+}
+.fa-times-circle:hover{
+  color: red;
+}
+
+.fa-check-circle{
+  font-size: 20px;
+  padding-top: 15px;
+  padding-right: 20px;
+  float: right;
+  cursor: pointer;
+  color : #55efc4;
+}
+.fa-check-circle:hover{
+  color: #00b894;
+}
+.icerik-listesi-panel-baslik{
+    font-size: 35px;
+    font-family: 'Roboto', sans-serif;
+    padding-bottom: 20px;
+}
+select{
+  font-size: 20px;
+  font-family: 'Roboto', sans-serif;
+  border: none;
+  padding-top: 0px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #86878b;
+  margin-top: 10px;
+}
+
+option{
+  border: 1px solid red;
+  font-family: 'Roboto', sans-serif;
+  color: #86878b;
+}
