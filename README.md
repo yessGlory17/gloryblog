@@ -7,7 +7,7 @@
 - Responsive
 - Content Editor [https://github.com/yessGlory17/blog-editor]
 - Dynamic Homepage
-
+- Admin Dashboard
 
 ## Screenshoots
 ### Light Mode
