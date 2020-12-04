@@ -29,6 +29,8 @@ body{
     margin-top: 50px;
     font-family: 'Roboto', sans-serif;
     font-size: 22px;
+    letter-spacing: -.003em;
+    line-height: 1.58
 }
 
 .etiketler{
@@ -77,15 +79,19 @@ body{
     width: 90vmin;
     min-height: 70px;
     background-color: #ffffff;
+    border-left: 10px solid #182C61;
+    border-right: 10px solid #182c61;
+    border-width: 10px;
+    border-radius: 10px;
     margin-top: 10px;
     margin-bottom: 5px;
-    border-radius: 10px;
+    border-radius: 5px;
     box-shadow: 0 0px 5px rgba(0, 0, 0, 0.3);
     transition: box-shadow .5s;
 }
 .yorum-liste:hover{
-    box-shadow: 0 0px 10px rgba(0, 0, 0, 0.3);
-    transition: box-shadow .5s;
+    box-shadow: 0 3px 15px rgba(0, 0, 0, 0.3);
+    transition: box-shadow .2s;
 }
 .yorum-kullanici{
     width: 100%;
@@ -103,7 +109,8 @@ p.yorum-kullanici{
     padding-top: 10px;
     padding-left: 15px;
     font-family: 'Roboto', sans-serif;
-    color: #74b9ff;
+    color: #182C61;
+    font-weight: bold;
 }
 p.yorum-icerik{
     font-size: 18px;

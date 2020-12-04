@@ -1,0 +1,802 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editor</title>
+    <link rel="stylesheet" href="./css/reset.css">
+    <!-- <link rel="stylesheet" href="./css/style.css"> -->
+    <link id="color-mode-link" rel="stylesheet" href="./css/editor-style.css">
+    <!-- <script src="./jquery/jquery-3.5.1.min.js"></script> -->
+    <script
+  src="https://code.jquery.com/jquery-3.5.1.js"
+  integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+  crossorigin="anonymous"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script> -->
+    <script src="https://kit.fontawesome.com/1389171202.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
+    
+</head>
+<body class="dark">
+    <div class="navbar">
+        <div class="menu-button">
+            <i class="fas fa-bars" style="font-size: 30px; padding-top: 10px; padding-left: 20px;"></i>
+          </div>
+        <div class="logo-container"></div>
+        <div class="submit-button-container">
+            <!--  -->
+            
+        </div>
+        
+        <div class="login-logout">
+            
+
+            <button class="submit-post" style="cursor: pointer;">
+                <p class="submit-text"> Yayınla</p>
+                <i id="submit-post-icon" class="fas fa-check" ></i>
+            </button>
+
+            <div class="checkbox-container">
+                <input type="checkbox" class="checkbox" id="darkmode-checkbox" />
+                <label class="label" for="darkmode-checkbox">
+                    <i class="fas fa-moon"></i>
+                    <i class="fas fa-sun"></i>
+                    <div class="ball"></div>
+                </label>
+            </div>
+
+            
+        </div>
+    </div>
+
+    <!-- <div class="side-menu-container">
+        <div class="home" style="cursor: pointer; float: left;">
+            <a href="#" class="home-link">
+                <i class="fa fa-home" style="font-size: 25px;"></i>
+            </a>
+        </div>
+        <div class="editor-posts" style="cursor: pointer; float: left;">
+            <a href="#" class="editor-posts-link">
+                <i class="fa fa-file-alt"></i>
+            </a>
+        </div>
+        <div class="editor" style="cursor: pointer; float: left;">
+            <a href="#" class="editor-link">
+                <i class="fas fa-feather-alt"></i>
+            </a>
+        </div>
+    </div> -->
+
+    <div class="editor">
+        <div class="editor-left"></div>
+        <div class="editor-main">
+
+            
+           <!--Düzenleme Butonları!-->
+            <div class="select-text-box">
+                <button class="select-text-box-bold-button">
+                    <i class="fas fa-bold"></i>
+                </button>
+                <button class="select-text-box-italic-button">
+                    <i class="fas fa-italic"></i>
+                </button>
+                <button class="select-text-box-link-button">
+                    <i class="fas fa-link"></i>
+                </button>
+                <button class="select-text-box-quote-button" id="content-quote-button">
+                        <i class="fas fa-quote-right"></i>
+                </button>
+                <button class="select-text-box-underline-button" id="content-quote-button">
+                   
+                        <i class="fas fa-underline"></i>
+                    
+                </button>
+                <button class="select-text-box-highlighter-button" id="content-quote-button">
+                    
+                        <i class="fas fa-highlighter"></i>
+                    
+                </button>
+                <!-- <button class="select-text-box-list-ul-button" id="content-quote-button">
+                    <a href="#" id="list-ul-button-link">
+                        <i class="fas fa-list-ul"></i>
+                    </a>
+                </button> -->
+              
+    
+                
+                    <label class="custom-image-upload">
+                        <input type="file" id="yukle">
+                        <i id="upload-icon" class="fas fa-image"></i>
+                    </label>
+                
+            </div>
+            <!--Düzenleme Butonları-->
+    
+            <div class="text-header-container">
+                <div class="editor-section-container">
+                    <!-- <div class="editor-buttons" >
+                        <button class="plus-button" id="header-plus-button">
+                            <i class="fas fa-plus"></i>   
+                        </button>
+                        <button class="image-button" id="header-image-button">
+                            <i class="fas fa-image"></i>
+                        </button>
+                        <button class="link-button" id="header-link-button">
+                            <i class="fas fa-link"></i>
+                        </button>
+                    </div> -->
+                    <p class="editor-section-text" >
+                        Title
+                    </p>
+                </div>
+               <div class="vertical-line">
+                    
+                </div> 
+                <div class="text-header-flex-container">
+                    <div class="header-input-flex-container-content">
+                        <div contenteditable="true" class="header-input" id="baslik" placeholder="Buraya Başlığı Giriniz"></div>
+                        
+                    </div>
+                </div>
+                
+           </div>
+           <div class="content-header-container">
+            <div class="editor-section-container">
+                <!-- <div class="editor-buttons">
+                    <button class="plus-button" id="content-plus-button">
+                        <i class="fas fa-plus"></i>   
+                    </button>
+                    <button class="image-button" id="content-image-button">
+                        <i class="fas fa-image"></i>
+                    </button>
+                    <button class="link-button" id="content-link-button">
+                        <i class="fas fa-link"></i>
+                    </button>
+                    
+                </div> -->
+                <p class="editor-section-text" >
+                    Content
+                </p>
+            </div>
+           <div class="vertical-line">
+                
+            </div> 
+            <div class="text-header-flex-container">
+                <div class="content-input-flex-container-content">
+                    <div contenteditable="true" class="header-input" id="content-input" placeholder="Burada hikayeni anlat!"></div>
+                    
+                </div>
+            </div>
+            
+        </div>
+        
+        
+        <div class="tag-input-container">
+            <div class="editor-section-container">
+                <!-- <div class="editor-buttons">
+                    <button class="plus-button" id="content-plus-button">
+                        <i class="fas fa-plus"></i>   
+                    </button>
+                    <button class="image-button" id="content-image-button">
+                        <i class="fas fa-image"></i>
+                    </button>
+                    <button class="link-button" id="content-link-button">
+                        <i class="fas fa-link"></i>
+                    </button>
+                    
+                </div> -->
+                <p class="editor-section-text" >
+                    Tags
+                </p>
+            </div>
+           <div class="vertical-line">
+                
+            </div> 
+            <div class="text-header-flex-container">
+                <div class="tag-input-flex-container-content">
+                    <!-- <div contenteditable="true" class="header-input" id="content-input" placeholder="Burada hikayeni anlat!"></div> -->
+                    <!-- <span class="tag">
+                        <span class="tag-content"> Test
+                         
+                        </span>
+                        <span class="tag-close"> X </span>
+                    </span> -->
+                    <input type="text" class="tag-input" placeholder="Etiketi Giriniz">
+                </div>
+            </div>
+            
+        </div>
+                
+            
+    
+        </div>
+        <div class="editor-right"></div>
+    </div>
+    <script>
+        
+         $(document).ready(function(){
+            
+
+
+            DuzenlenecekYaziyiGetir(localStorage.getItem("duzenlenecekId"));
+            //cookieye göre renk modu ayarı!
+            CheckMode();
+            
+            
+
+            //Yan Menüyü açar kapatır.
+            var isOpenMenu = false;
+            $(".menu-button").click(function(){
+                if(!isOpenMenu){
+                    $(".side-menu-container").slideDown(1000);
+
+                    isOpenMenu = !isOpenMenu;
+                    console.log(isOpenMenu);
+                }else{
+                    $(".side-menu-container").slideUp(1000);
+
+                    isOpenMenu = !isOpenMenu;
+                    console.log(isOpenMenu);
+                }
+            });
+            
+            //Burada editöre bir metin yapıştırılırsa onu kendi stilinde yapıştırmasını sağlıyorum. Yoksa seçilen metinin özellikleri gelir!
+            $('[contenteditable]').on('paste',function(e) {
+        
+                e.preventDefault();
+                
+                var text = (e.originalEvent || e).clipboardData.getData('text/html');
+                var $result = $(this).append($(text));
+                
+                $(this).html($result.html());
+                
+                // Burada kalın ve italik hariç tüm stilleri değiştiriyorum.
+                $.each($(this).find("*"), function(idx, val) {
+                    var $item = $(val);
+                    if ($item.length > 0){
+                    var saveStyle = {
+                            'font-weight': $item.css('font-weight'),
+                            'font-style': $item.css('font-style')
+                        };
+                        $item.removeAttr('style').removeClass()
+                        .css(saveStyle); 
+                    }
+                });
+                
+                //Gereksiz etiketleri kaldırıyorum.
+                $(this).children('style').remove();
+                $(this).children('meta').remove()
+                $(this).children('link').remove();
+                
+            });
+            
+            
+
+
+            //  $(".header-input").on("focusout",function(){
+               
+            //    //Başlık girişi inputundan çıktığında bölge ismini kapatır ve seçenek butonunu açar!
+            //     $(".editor-section-text").css("display","flex");
+            //     $(".editor-buttons").css("display","none");
+
+            //  })
+
+            
+
+             //Artı butonuna basıldığında diğer içerik ekleme butonlarını gösterir
+             var editorButtons1Show = false; //Editor butonunun görünürlüğünü kontrol eder.
+             $("#header-plus-button").click(function(){
+                 //alert();
+                if(!editorButtons1Show){
+                    $("#header-image-button").fadeIn(500);
+                    $("#header-link-button").fadeIn(500);
+
+                    editorButtons1Show = !editorButtons1Show;
+
+                }else{
+
+
+                    $("#header-image-button").fadeOut(500);
+                    $("#header-link-button").fadeOut(500);
+
+                    editorButtons1Show = !editorButtons1Show;
+                }
+             })
+
+             //İçerik + butonunu kontrol eder.
+            //  var editorButtons2Show = false;
+            //  $("#content-plus-button").click(function(){
+            //      //alert();
+            //     if(!editorButtons2Show){
+            //         $("#content-image-button").fadeIn(500);
+            //         $("#content-link-button").fadeIn(500);
+
+            //         editorButtons2Show = !editorButtons2Show;
+
+            //     }else{
+
+            //         $("#content-image-button").fadeOut(500);
+            //         $("#content-link-button").fadeOut(500);
+
+            //         editorButtons2Show = !editorButtons2Show;
+            //     }
+            //  })
+
+
+             //Yazı Seçme ve Düzenleme
+             var secilenYazi = null;
+             var linkText = '';//Linke yazıyı aktarma
+             $(".header-input").on("mouseup",function(event){
+                
+                var aralik = new Range();
+                
+                //secilenYazi = YaziyiSec();
+                secilenYazi = document.getSelection() || document.selection.createRange();
+                
+                var mPos = {
+                    x  : event.pageX,
+                    y : event.pageY
+                };
+
+                if(secilenYazi != ''){
+                    $(".select-text-box").fadeIn(500)
+                    $(".select-text-box").offset({
+                        top: event.pageY - 100,
+                        left : event.pageX - 100
+                    });
+                    
+                    //Yazıyı Düzenlenmek İçin Kalınlaştırma Butonu
+                    $(".select-text-box-bold-button").on("click",function(){
+                        //e.preventDefault();
+                        //Yazıyı Kalınlaştıracak Fonksiyonu çağırıyoruz.
+                        format('bold');
+                        //addBold(document.getSelection() || document.selection.createRange())
+                    })
+
+                    //Yazıyı Düzenlemek İçin Yanaeğme Butonu
+                    $(".select-text-box-italic-button").click(function(){
+
+                        //Yazıyı Yanaeğik Yapacak Fonksiyonu Çağırıyoruz.
+                        //e.preventDefault();
+                        format('italic');
+
+                        console.log(YaziyiSec())
+                    })
+
+                    $(".select-text-box-quote-button").click(function(){
+                        //console.log(secilenYazi);
+                        //e.preventDefault();
+                        addBloquete(document.getSelection() || document.selection.createRange());
+                    })
+
+                    $(".select-text-box-link-button").click(function(e){
+                        //Link ekler
+                        var alinanLink = prompt("Linki buraya giriniz : ");
+                        setUrl(YaziyiSec(),alinanLink);
+                    });
+
+                    $(".select-text-box-underline-button").click(function(e){
+                        //alert();
+                        //e.preventDefault();
+                        format('underline');
+                    });
+
+                    $(".select-text-box-highlighter-button").click(function(e){
+                        //alert();
+                        //e.preventDefault();
+                        var mode = localStorage.getItem('dark-mode');
+                        if(mode == 'true'){
+                            document.execCommand("HiliteColor",false,"#FFFC33")
+                            document.execCommand("foreColor",false,"#000")
+                        }else{
+                            document.execCommand("HiliteColor",false,"#FFFC33")
+                        }
+
+                        
+                    });
+
+                    $(".select-text-box-list-ul-button").click(function(e){
+                        alert();
+                        
+                        //format('insertunorderedlist');
+                        document.execCommand('insertOrderedList',false,YaziyiSec());
+                        
+                        
+                    });
+
+                    
+                    //Alıntı kısmı takılı kalıyor o bug'ı çözmek için!
+                    $('[contenteditable]').on("keyup", function(e){
+
+                        //alert("Enter!");
+                        if (e.which || e.keyCode === 13) {
+                            if (document.queryCommandValue('formatBlock') === 'blockquote') {
+                                document.execCommand('formatBlock',0, '<p>')
+                            }
+                        }
+
+                    });
+
+                    
+                    
+                    //Upload tetikleme!
+                    
+                    $("#yukle").change(function(){
+
+                        
+                        var fd = new FormData();
+                        var files = $('#yukle')[0].files;
+                        //alert(files[0].name);
+                        // Check file selected or not
+                        if(files.length > 0 ){
+                        fd.append('file',files[0]);
+
+                        $.ajax({
+                            url: 'backend/imageupload.php',
+                            type: 'post',
+                            data: fd,
+                            contentType: false,
+                            processData: false,
+                            success: function(response){
+                                console.log(response);
+                                console.log(files[0].name);
+                                if(response != 0){
+                                    //$(".preview-image").attr("src",response); 
+                                    //$(".image-upload").fadeOut(500);
+                                    
+                                    var host = "https://localhost";
+                                    var image =  "uploads/" +files[0].name;
+                                    console.log("Added Image Url : " + image);
+                                    $("#content-input").focus();
+                                    //document.execCommand('insertImage',0,image)
+                                    document.execCommand('insertHTML', 0, '<img class="post-image" src="' + image + '"  /> </img>');
+
+                                }else{
+                                    //alert('Dosya Yüklenemedi');
+                                }
+                            },
+                        });
+                        }else{
+                            alert("Lütfen Dosya seç!");
+                        }
+                    
+                    })
+
+                    secilenYazi = '';
+                }else{
+                    $(".select-text-box").fadeOut(1000)
+                    //$(".link-dialog").fadeOut(1000)
+                }
+             })
+
+
+             //Yazı Seçme Fonksiyonu
+             function YaziyiSec(){
+                 
+                if (window.getSelection) {
+                    return window.getSelection();
+                } else if (document.selection) {
+                    return document.selection.createRange();
+                }
+                return '';
+
+             }
+
+
+             //Yazıyı Düzenleme Fonksiyonu
+             function format(command,value){
+                 //alert();
+                 var alinan = value;
+                if(alinan != ''){
+                    document.execCommand(command,false,alinan);
+                }
+             }
+
+
+            
+             function setUrl(secilen, adres){
+                //alert("Set Url Çalıştı")
+                //Bu fonksiyonun amacı metin düzenlemede link eklemek istendiği zaman bu link girişi yapıldığında linki yazıya eklemek.
+                
+                var url = adres;
+                var sText = secilen;
+                console.log(sText);
+                document.execCommand('insertHTML', false, '<a href="' + url + '" >' + sText + '</a>');
+                //document.getElementById(linkDialogText).value = '';
+
+
+             }
+
+
+             //Bu fonksiyonun amacı metinde alıntı eklemektir.
+             function addBloquete(secilen){
+                
+                var secilenText = secilen;
+                if(secilenText != ''){
+                    //alert("Boş yakalandı!");
+                    document.execCommand('insertHTML', false, '<blockquote class="alinti">' + secilenText + '</blockquote>');
+                }
+                
+                
+             }
+
+             function addBold(secilen){
+                var secilenText = secilen;
+                if(secilenText != ''){
+                    //alert("Boş yakalandı!");
+                    document.execCommand('insertHTML', false, '<strong>' + secilenText + '</strong>');
+                }
+             }
+
+
+             //Etiket İnputu
+            var tags = []
+            var createdTags = []
+            function CreateTags(){
+                $.each(tags,function(index,item){
+                    //alert(item)
+                    if(jQuery.inArray(item,createdTags) == -1){
+                        //alert(item)
+                        var newTag = '<span class="tag" id="'+ index + '">' + 
+                        '<span class="tag-content">'+ item +
+                            
+                        '</span>' + 
+                        '<span class="tag-close"> <i id="tag-close-icon" class="far fa-trash-alt"></i> </span>'+
+                        '</span>';
+                        createdTags.push(item);
+                        $(".tag-input-flex-container-content").append(newTag);
+                    }
+                
+                })
+            }
+             
+        
+            CreateTags();
+
+
+            //Enter'a basıldığında yeni etiket oluşturmak için!
+            $(".tag-input").keyup(function(event){
+
+                //Tuşa basıldığında tetiklenen eventin hangi tuş olduğuna bakıyorum.
+                if(event.which == 13 && tags.length < 5){
+                    //Eğer tuş enter ise yeni etiket oluşturuyor!
+                    var tag = $(".tag-input").val();
+                    //alert(tag.length)
+                    //Girilen verinin uzunluğunu kontrol ediyorum.
+                    if(tag.length > 0 && tag != null){
+                        var tagLength = $(".tag-input").val();
+
+                        if(tagLength.length <= 10){
+                            tags.push(tag.toLowerCase());
+
+                            CreateTags();
+                            
+                            $(".tag-input").val('');
+                        }else{
+                            alert("Etiket Uzunluğu Maksimum 12 karakter olabilir.")
+                            $(".tag-input").val('');
+                        }
+                    }
+
+                    
+                }else if(event.which == 13 && tags.length >= 4){
+                    // $(".tag-input").val('');
+                    // $(".tag-input").val('Sadece 5 Etiket Yazabilirsiniz!');
+                    alert("Sadece 4 Adet Etiket Girebilirsiniz!")
+                    $(".tag-input").val('');
+                }
+
+                
+            })
+
+
+            //Etiketi silmek için!
+            $(".tag-input-flex-container-content").on("click",".tag-close",function(){
+                var tagID = $(this).parent().attr("id");
+                tagID = "#" + tagID;
+                //alert(tags);
+                //alert($(tagID).find(".tag-content").text());
+                var silinecekEtiket = $(tagID).find(".tag-content").text();
+                tags.pop(silinecekEtiket);
+                //alert(tags);
+                $(this).parent().fadeOut(3000)
+                $(this).parent().remove();
+            })
+
+
+            function EditText(){
+                var highlight = window.getSelection();  
+                var span = '<span class="bold">' + highlight + '</span>';
+                var text = $('.textEditor').html();
+                $('.textEditor').html(text.replace(highlight, span));
+            }
+
+            //Navbar
+            /*
+            *- Yazı yayımlama butonu
+            *- Dark / Light mod 
+            */
+
+
+            //Dark mode Chechbox
+            $("#darkmode-checkbox").change(function(){
+                //alert();
+                if($(this).is(":checked")){
+                    $(this).attr("checked", true);
+                    if($(this).attr("checked")){
+                        //Eğer check edildiyse karanlık moda geçir!
+                        $("#color-mode-link").attr("href","./css/editor-style.css");
+                        
+                        //Mod için cookie ayarlıyorum
+                        localStorage.setItem('dark-mode','false');
+                        $(".ball").css({'transform' : 'translateX(24px)'});
+                        //alert(localStorage.getItem('dark-mode'));
+                    }
+                }else{
+                    $(this).attr("checked", false);
+                    if(!$(this).attr("checked")){
+                        //Eğer check edildiyse karanlık moda geçir!
+                        $("#color-mode-link").attr("href","./css/editor-dark.css").fadeIn(1000);
+
+                        //Mode için cookie ayarlıyorum
+                        
+                        localStorage.setItem('dark-mode','true');
+                        $(".ball").css({'transform' : 'translateX(0px)'});
+                        //alert(localStorage.getItem('dark-mode'));
+                        
+                    }
+                }
+            });
+
+
+            function CheckMode(){
+                var mode = localStorage.getItem('dark-mode');
+                if(mode == 'true'){
+                    //alert("Dark mode aktif");
+                    $("#color-mode-link").attr("href","./css/editor-dark.css").fadeIn(1000);
+                    //$(".ball").css({'transform' : 'translateX(0px)'});
+                    
+                    //$("#darkmode-checkbox").attr("checked",false);
+                }else{
+                    //alert("Light mode aktif!")
+                    $("#color-mode-link").attr("href","./css/editor-style.css").fadeIn(1000);
+                    //$(".ball").css({left:25});
+                    //$(".ball").css({'transform' : 'translateX(24px)','transition' : 'transform 0.2s linear'})
+                   $(".ball").css({'transform' : 'translateX(24px)'});
+                }
+            }
+            //Burada Veri Tabanına Editör İçindekiler Gönderilecek!
+
+            function Yayınla(){
+                    //Burada val ile değilde text fonksiyonu ile değeri alma sebebim input yerine contenteditable türünde bir div kullanmam
+                    var baslik = $("#baslik").text();
+                    
+                    var icerik = $("#content-input").html();
+                    var etiketinput =  $("span.tag-content").text();
+                    var etiketler = JSON.stringify(tags);
+                    var onay = "false";
+                    var anaresim = "uploads/undefined-image.jpeg";
+
+                    var resimUrl = $(".post-image").attr("src");
+                    //alert(jQuery.type(resimUrl));
+                    if(resimUrl != null){
+                        anaresim = resimUrl;
+                    }
+                    // $.each(tags, function(index, item){
+                    //     alert(tags[index]);
+                    // })
+                    
+                    var yazi = {baslik : baslik , icerik : icerik, etiketler : etiketler, onay : onay, anaresim : anaresim};
+                    //yazi = JSON.stringify(yazi);
+                    //alert(etiketler);
+
+
+                    //Ajax Post İşlemi
+                    $.ajax({
+                        type: "POST",
+                        url: "backend/yaziekle.php",
+                        data: {baslik : baslik , icerik : icerik, etiketler : etiketler, onay : onay, anaresim : anaresim},
+                        dataType: "JSON",
+                        success: function(cevap) {
+                            console.log(cevap);
+                            //alert(cevap);
+                        },
+                        error: function(err) {
+                            console.log(err);      
+                        }
+                    });
+            }
+
+            $(".submit-post").on("click",function(){
+                Duzenle();
+            });
+
+
+            //Düzenlenecek Yazı Bilgilerini Al
+            function DuzenlenecekYaziyiGetir(id){
+                var gelenid = id;
+                $.ajax({
+                    type: "POST",
+                    url : "backend/duzenlenecekyaziyigetir.php",
+                    data: {id: gelenid},
+                    dataType : "JSON",
+                    success : function(response){
+                        //var sonuc = JSON.parse(response);
+                        console.log(response);
+                        console.log(response[0]["baslik"]);
+                        //alert(sonuc["baslik"]);
+                        $("#baslik").html(response[0]["baslik"]);
+                        $("#content-input").html(response[0]["icerik"]);
+
+                        var etiketler =  JSON.parse(response[0]["etiketler"]);
+                        console.log(etiketler)
+                        $.each(etiketler,function(index,item){
+                            console.log(item);
+                            tags.push(item);
+                            
+
+                        });
+
+                        CreateTags();
+                    },
+                    error:function(res){
+                        console.log(res);
+                    }
+                })
+            }
+
+
+
+            function Duzenle(){
+                //Burada val ile değilde text fonksiyonu ile değeri alma sebebim input yerine contenteditable türünde bir div kullanmam
+                
+                var id = localStorage.getItem("duzenlenecekId");
+                var baslik = $("#baslik").text();
+                    
+                    var icerik = $("#content-input").html();
+                    var etiketinput =  $("span.tag-content").text();
+                    var etiketler = JSON.stringify(tags);
+                    var onay = "false";
+                    var anaresim = "uploads/undefined-image.jpeg";
+
+                    var resimUrl = $(".post-image").attr("src");
+                    //alert(jQuery.type(resimUrl));
+                    if(resimUrl != null){
+                        anaresim = resimUrl;
+                    }
+                    // $.each(tags, function(index, item){
+                    //     alert(tags[index]);
+                    // })
+                    
+                    var yazi = {id: id, baslik : baslik , icerik : icerik, etiketler : etiketler, onay : onay, anaresim : anaresim};
+                    //yazi = JSON.stringify(yazi);
+                    //alert(etiketler);
+
+
+                    //Ajax Post İşlemi
+                    $.ajax({
+                        type: "POST",
+                        url: "backend/yaziduzenle.php",
+                        data: {id: id, baslik : baslik , icerik : icerik, etiketler : etiketler, onay : onay, anaresim : anaresim},
+                        dataType: "JSON",
+                        success: function(cevap) {
+                            console.log(cevap);
+                            //alert(cevap);
+                        },
+                        error: function(err) {
+                            console.log(err);      
+                        }
+                    });
+            }
+
+            
+
+             
+});
+
+
+
+</script>
+</body>
+</html>

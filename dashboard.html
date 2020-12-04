@@ -81,12 +81,12 @@
               <p style="float: left;">Bekleyen Kullanıcılar</p>
               
           </button>
-            <button class="menu-button">
+            <button class="menu-button" id="yorumlar-button">
                 <i class="fas fa-chevron-right" style="float: right;"></i>
                 <p style="float: left;">Yorumlar</p>
                 
             </button>
-            <button class="menu-button">
+            <button class="menu-button" id="bekleyen-yorumlar-button">
               <i class="fas fa-chevron-right" style="float: right;"></i>
               <p style="float: left;">Bekleyen Yorumlar</p>
               
@@ -433,7 +433,14 @@
 
     <script>
       $(document).ready(function(){
+        
+        SayfaYukleninceYap();
 
+        function SayfaYukleninceYap(){
+          $(".icerik").remove();
+          $(".icerik-listesi-panel-baslik").remove();
+          YazilariGetir();
+        }
         
         $("#anasayfa-button").on("click",function(){
 
@@ -468,6 +475,19 @@
           KullanicilariGetir();
         })
 
+        $("#yorumlar-button").on("click",function(){
+         
+         $(".icerik").remove();
+         $(".icerik-listesi-panel-baslik").remove();
+         YorumlariGetir();
+       })
+
+        $("#bekleyen-yorumlar-button").on("click",function(){
+         
+          $(".icerik").remove();
+          $(".icerik-listesi-panel-baslik").remove();
+          BekleyenYorumlariGetir();
+        })
 
         //Silme butonu
         $(document).on("click","#yazi-sil",function(){
@@ -515,7 +535,48 @@
         $(".icerik-listesi-panel-baslik").remove();
         BekleyenKullanicilariGetir();
       })
-        function YazilariGetir(){
+
+
+      $(document).on("click","#yorum-reddet",function(){
+        var id = $(this).parent().find(".p-id").text();
+        //var hangibolumde = $(this).parent().parent().find(".icerik-listesi-panel-baslik").text();
+        YorumSil(id);
+        $(".icerik").remove();
+        $(".icerik-listesi-panel-baslik").remove();
+        BekleyenYorumlariGetir();
+      })
+
+      $(document).on("click","#yorum-onayla",function(){
+        var id = $(this).parent().find(".p-id").text();
+        //var hangibolumde = $(this).parent().parent().find(".icerik-listesi-panel-baslik").text();
+        YorumOnayla(id);
+        $(".icerik").remove();
+        $(".icerik-listesi-panel-baslik").remove();
+        BekleyenYorumlariGetir();
+      })
+
+      $(document).on("click","#yorum-sil",function(){
+        var id = $(this).parent().find(".p-id").text();
+        //var hangibolumde = $(this).parent().parent().find(".icerik-listesi-panel-baslik").text();
+        YorumSil(id);
+        $(".icerik").remove();
+        $(".icerik-listesi-panel-baslik").remove();
+        YorumlariGetir();
+      })
+      
+      $(document).on("click","#yazi-duzenle",function(){
+        var id = $(this).parent().attr("id");
+        //alert($(this).attr("class"));
+        //var hangibolumde = $(this).parent().parent().find(".icerik-listesi-panel-baslik").text();
+        //alert(id);
+        localStorage.setItem('duzenlenecekId',id);
+
+        // setInterval(function(){
+        //             window.location.href = "https://localhost/Blog/yaziduzenle.html";
+        // },1000);
+      })
+      
+      function YazilariGetir(){
       
             $.ajax({
               type: "GET",
@@ -553,7 +614,7 @@
                       '</p>'+
                     '</div>'+
                     '<i class="far fa-trash-alt" id="yazi-sil"></i>'+
-                    '<i class="far fa-edit"></i>' +
+                    '<a href="yaziduzenle.html" id="'+ item["id"] + '"> <i class="far fa-edit" id="yazi-duzenle"></i> </a>' +
                   '</div>';
 
                       
@@ -563,10 +624,6 @@
               }
             })
             }
-
-
-
-
 
       function BekleyenYazilariGetir(){
       
@@ -618,9 +675,7 @@
               })
             }
 
-
-
-            function KullanicilariGetir(){
+      function KullanicilariGetir(){
               $.ajax({
               type: "GET",
               url : "backend/kullanicilarigetir.php",
@@ -676,8 +731,7 @@
             })
             }
 
-
-          function BekleyenKullanicilariGetir(){  
+      function BekleyenKullanicilariGetir(){  
             $.ajax({
               type: "GET",
               url : "backend/bekleyenkullanicilarigetir.php",
@@ -735,7 +789,7 @@
             })
           }
           
-          $(document).on("click","#kullanici-onayla",function(){
+      $(document).on("click","#kullanici-onayla",function(){
             var id = $(this).parent().attr("id");
             KullaniciOnayla(id);
             //alert(id);
@@ -744,7 +798,7 @@
             BekleyenKullanicilariGetir();
           });
 
-          $(document).on("click","#kullanici-reddet",function(){
+      $(document).on("click","#kullanici-reddet",function(){
             var id = $(this).parent().attr("id");
             KullaniciReddet(id);
             //alert(id);
@@ -754,14 +808,14 @@
           });
 
           //Yetki ayarı yapıldığında çalışacak!
-          $(document).on("change","#tip-secimi",function(){
+      $(document).on("change","#tip-secimi",function(){
             var id = $(this).parent().parent().attr("id");
             var yetkiismi = $(this).val();
             //alert(yetkiismi);
             YetkiVer(id,yetkiismi);
           })
 
-          function YetkiAyari(item){
+      function YetkiAyari(item){
             var donenayar;
             if(item["tip"] == "admin"){
                     var secenekayari = '<option value="admin" selected> Admin </option>' +
@@ -777,7 +831,7 @@
             return donenayar;
           }
 
-          function Sil(tablo,id){
+      function Sil(tablo,id){
             var tabloadi = tablo;
             var gelenid = id;
             $.ajax({
@@ -800,8 +854,7 @@
             })
           }
 
-
-          function Onayla(id){
+      function Onayla(id){
             var gelenid = id;
             $.ajax({
               type: "POST",
@@ -814,9 +867,7 @@
             })
           }
 
-
-
-        function KullaniciSil(id){
+      function KullaniciSil(id){
           var gelenid = id;
             $.ajax({
               type: "POST",
@@ -829,7 +880,7 @@
             })
         }
 
-        function KullaniciOnayla(id){
+      function KullaniciOnayla(id){
           var gelenid = id;
             $.ajax({
               type: "POST",
@@ -842,7 +893,7 @@
             })
         }
 
-        function YetkiVer(id, gelenyetki){
+      function YetkiVer(id, gelenyetki){
           //İD ve isim gönder
           var gelenid = id;
           var yeniyetki = gelenyetki;
@@ -857,7 +908,7 @@
             })
         }
 
-        function KullaniciReddet(id){
+      function KullaniciReddet(id){
             var gelenid = id;
             $.ajax({
               type: "POST",
@@ -869,7 +920,146 @@
               }
             })
         }
-    })
+
+      function YorumlariGetir(){
+          $.ajax({
+              type: "GET",
+              url : "backend/onayliyorumlarigetir.php",
+              success : function(response){
+                console.log(JSON.parse(response));
+                
+                var yazilar = JSON.parse(response);
+                var baslik = '<p class="icerik-listesi-panel-baslik">ONAYLI YORUMLAR</p>';
+                $(".icerik-liste-panel").append(baslik);
+
+                $.each(yazilar,function(index, item){
+                  console.log(item["icerik"]);
+
+                  console.log(item["tip"])
+                  var icerikMetin = [];
+                  icerikMetin[0] = item["icerik"];
+                  icerikMetin = $.map(icerikMetin,function(str, i){
+                    return $("<div/>").html(str).text();
+                  })
+                    
+                  
+                    
+                        var icerikkarti = '<div class="icerik" id="'+ item["id"] +'">'+
+                    '<div class="id">'+
+                      '<p class="p-id">' +
+                        + item["id"] +
+                      '</p>'+
+                    '</div>' +
+                    '<div class="baslik">' +
+                      '<p class="p-baslik">' +
+                        item["yorum"] +
+                      '</p>' +
+                    '</div>' +
+                    '<div class="yazar">'+
+                      '<p class="p-yazar">'+ item["kullanici"] + '</p>'+
+                    '</div>'+
+                    '<div class="yetki">' +
+                      
+                    '</div>' +
+                    '<i class="far fa-trash-alt" id="yorum-sil"></i>'+
+                    
+                  '</div>';
+
+                 
+                        
+                  $(".icerik-liste-panel").append(icerikkarti);
+                  
+                  
+                  
+
+                })
+              }
+            })
+        }
+
+      function BekleyenYorumlariGetir(){
+          $.ajax({
+              type: "GET",
+              url : "backend/bekleyenyorumlarigetir.php",
+              success : function(response){
+                console.log(JSON.parse(response));
+                
+                var yazilar = JSON.parse(response);
+                var baslik = '<p class="icerik-listesi-panel-baslik">BEKLEYEN YORUMLAR</p>';
+                $(".icerik-liste-panel").append(baslik);
+
+                $.each(yazilar,function(index, item){
+                  console.log(item["icerik"]);
+
+                  console.log(item["tip"])
+                  var icerikMetin = [];
+                  icerikMetin[0] = item["icerik"];
+                  icerikMetin = $.map(icerikMetin,function(str, i){
+                    return $("<div/>").html(str).text();
+                  })
+                    
+                  
+                    
+                        var icerikkarti = '<div class="icerik" id="'+ item["id"] +'">'+
+                    '<div class="id">'+
+                      '<p class="p-id">' +
+                        + item["id"] +
+                      '</p>'+
+                    '</div>' +
+                    '<div class="baslik">' +
+                      '<p class="p-baslik">' +
+                        item["yorum"] +
+                      '</p>' +
+                    '</div>' +
+                    '<div class="yazar">'+
+                      '<p class="p-yazar">'+ item["kullanici"] + '</p>'+
+                    '</div>'+
+                    '<div class="yetki">' +
+                      
+                    '</div>' +
+                    '<i class="far fa-check-circle" id="yorum-onayla"></i>'+
+                    '<i class="far fa-times-circle" id="yorum-reddet"></i>' +
+                  '</div>';
+
+                 
+                        
+                  $(".icerik-liste-panel").append(icerikkarti);
+                  
+                  
+                  
+
+                })
+              }
+            })
+        }
+
+      function YorumSil(id){
+          var gelenid = id;
+            $.ajax({
+              type: "POST",
+              url : "backend/yorumsil.php",
+              data: {id: gelenid},
+              dataType : "JSON",
+              success : function(response){
+                console.log(response);
+              }
+            })
+        }
+
+      function YorumOnayla(id){
+          var gelenid = id;
+            $.ajax({
+              type: "POST",
+              url : "backend/yorumonayla.php",
+              data: {id: gelenid},
+              dataType : "JSON",
+              success : function(response){
+                console.log(response);
+              }
+            })
+        }
+        
+      })
     </script>
 </body>
 </html>
