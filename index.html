@@ -419,7 +419,7 @@
                               '</div>'+
                               '<div class="icerik">'+
                                 '<div class="icerik-baslik">'+
-                                ' <p class="icerik-baslik-text">' + item["baslik"] +'</p>' +
+                                ' <a href="../Blog/detay.html" class="icerik-baslik-text" id="'+ item["id"] +'">' + item["baslik"] +'</a>' +
                                 '</div>'+
                                 '<div class="icerik-ana">' +
                                   '<p class="icerik-ana-text">' +
@@ -472,6 +472,27 @@
               //alert(localStorage.getItem('auth-user'));
             }
             
+
+            $(document).on("click",".icerik-baslik-text",function(){
+              var id = $(this).attr("id")
+              localStorage.setItem("postID",id);
+              // $.ajax({
+              //   type: "POST",
+              //   url : "backend/detay.php",
+              //   data: {id: id},
+              //   dataType: "JSON",
+              //   success : function(response){
+              //     //console.log(JSON.parse(response));
+
+              //     console.log(response);
+              //     alert(response);
+
+              //   }
+              // })
+            });
+
+
+
           });
       </script>
 

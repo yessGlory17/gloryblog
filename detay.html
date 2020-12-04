@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detay</title>
+    <link href="https://cdn.lineicons.com/2.0/LineIcons.css" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/1389171202.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+    <script src="./jQuery/jquery-3.5.1.min.js"></script>
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/editor-style.css">
+    <link rel="stylesheet" href="./css/detay.css">
+</head>
+<body>
+    <div class="ana">
+        <div class="baslik"></div>
+        <div class="icerik"></div>
+        <div class="etiketler"></div>
+    </div>
+    <div class="yorum">
+        <!-- <div class="yorum-liste">
+            <div class="yorum-kullanici">
+                <p class="yorum-kullanici">ozgurkurucan337@gmail.com</p>
+            </div>
+            <div class="yorum-icerik">
+                <p class="yorum-icerik"> Bu bir test yorumudur. Deneme amaçlı yazılmıştır.Bu bir test yorumudur. Deneme amaçlı yazılmıştır.Bu bir test yorumudur. Deneme amaçlı yazılmıştır.</p>
+            </div>
+        </div> -->
+        <div class="yorum-input" contenteditable="true" placeholder="Yorum Yapın!"></div>
+        <button class="yorum-yap-button">
+            Yayınla
+        </button>
+    </div>
+<script>
+    $(document).ready(function(){
+
+        //Tıklanan yazının detaylarını getirir.
+       DetayGetir();
+
+        //Tıklanan yazının yorumlarını getirir.
+        YorumGetir();
+        $(".yorum-yap-button").on("click",function(){
+                var yorum = $(".yorum-input").html();
+
+                var kullanici;
+                if(localStorage.getItem("auth-user")){
+                    kullanici = localStorage.getItem("auth-user");
+
+                }else{
+                    kullanici = "Anonim";
+                }
+
+
+                $.ajax({
+                type: "POST",
+                url : "backend/yorumyap.php",
+                data : {yorum : yorum, gonderiid : localStorage.getItem("postID"), kullanici : kullanici},
+                dataType: "JSON",
+                success : function(response){
+                    console.log(response);
+
+                    $(".yorum-input").empty();
+                    YorumGetir();
+                },
+                error: function(response){
+                    console.log(response);
+                }
+            })
+                
+        })
+
+        function DetayGetir(){
+            $.ajax({
+                type: "POST",
+                url : "backend/detay.php",
+                data : {id : localStorage.getItem("postID")},
+                success : function(response){
+                  //console.log(JSON.parse(response));
+                  
+                  var yazilar = JSON.parse(response);
+                  console.log(yazilar["icerik"]);
+                  $(".ana .baslik").append(yazilar[0]["baslik"]);
+                  $(".ana .icerik").append(yazilar[0]["icerik"]);
+                  
+                  var etiketler = JSON.parse(yazilar[0]["etiketler"]);
+
+                 
+
+                },
+                error: function(response){
+                    console.log(response);
+                }
+            })
+        }
+
+
+        function YorumGetir(){
+            $.ajax({
+                type: "POST",
+                url : "backend/yorumlarigetir.php",
+                data : {gonderiid : localStorage.getItem("postID")},
+                success : function(response){
+                  console.log(response);
+                    var yorumlar = JSON.parse(response);
+
+                    $.each(yorumlar,function(index, item){
+                        
+                        //$(".yorum").append(item["yorum"]);
+
+                        var yorumkartı = '<div class="yorum-liste">'+
+                            '<div class="yorum-kullanici">'+
+                                '<p class="yorum-kullanici">'+ item["kullanici"] +'</p>' +
+                            '</div>'+
+                            '<div class="yorum-icerik">'+
+                                '<p class="yorum-icerik"> '+  item["yorum"]  +' </p>'+
+                            '</div>'+
+                        '</div>';
+
+                        $(".yorum").append(yorumkartı);
+                    })
+
+                 
+
+                },
+                error: function(response){
+                    //console.log(response);
+                }
+            })
+
+        }
+        
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,115 @@
+*{
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
+}
+body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.ana{
+    width: 60vw;
+    
+    margin-top: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* border: 1px solid red; */
+}
+
+.ana > .baslik{
+    width: 90vmin;
+    font-family: 'Roboto', sans-serif;
+    font-size: 40px;
+}
+
+.icerik{
+    width: 90vmin;
+    /* border: 1px solid blue; */
+    margin-top: 50px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 22px;
+}
+
+.etiketler{
+    width: 60vw;
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+.yorum{
+    margin-bottom: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.yorum-input{
+    width: 90vmin;
+    min-height:20px;
+    border: 1px solid grey;
+    border-radius: 50px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
+    padding-top:20px;
+    padding-left: 20px;
+    padding-right: 10px;
+    padding-bottom: 20px;
+    flex-grow: 1;
+}
+
+.yorum-yap-button{
+    width: 100px;
+    height: 30px;
+    background-color: #81ecec;
+    font-family: 'Roboto', sans-serif;
+    margin-top: 10px;
+    color: white;
+    border-radius: 5px;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.3);
+    transition: background-color .5s, box-shadow .5s;
+}
+.yorum-yap-button:hover{
+    background-color: #00cec9;
+    box-shadow: 0 13px 15px rgba(0, 0, 0, 0.3);
+    transition: background-color .5s, box-shadow .5s;
+}
+
+.yorum-liste{
+    width: 90vmin;
+    min-height: 70px;
+    background-color: #ffffff;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    border-radius: 10px;
+    box-shadow: 0 0px 5px rgba(0, 0, 0, 0.3);
+    transition: box-shadow .5s;
+}
+.yorum-liste:hover{
+    box-shadow: 0 0px 10px rgba(0, 0, 0, 0.3);
+    transition: box-shadow .5s;
+}
+.yorum-kullanici{
+    width: 100%;
+    height: 30px;
+    
+}
+.yorum-icerik{
+    width: 100%;
+    min-height: 30px;
+    margin-top: 5px;
+    
+}
+p.yorum-kullanici{
+    font-size: 18px;
+    padding-top: 10px;
+    padding-left: 15px;
+    font-family: 'Roboto', sans-serif;
+    color: #74b9ff;
+}
+p.yorum-icerik{
+    font-size: 18px;
+    padding-top: 5px;
+    padding-left: 15px;
+    padding-bottom: 10px;
+    font-family: 'Roboto', sans-serif;
+    color: black;
+}
