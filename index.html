@@ -18,9 +18,14 @@
   crossorigin="anonymous"></script>
 </head>
 <body>
-    <div class="header">
+    <div class="header" >
         <img src="./images/logo.png" alt="" class="logo">
-
+        <div class="anasayfa-linkleri" style="float: right; font-size: 20px;margin-right: 20px;  font-family: 'Roboto', sans-serif; margin-top: 20px; ">
+          <a href="giris.html" class="giris">Giriş / Kayıt Ol</a>
+          <a href="dashboard.html" class="yonet">Yönet</a>
+          <a href="#" class="cikis">Çıkış</a>
+          
+        </div>
         <div class="checkbox-container">
           <input type="checkbox" class="checkbox" id="darkmode-checkbox" />
           <label class="label" for="darkmode-checkbox">
@@ -41,7 +46,7 @@
         </a>
       </div>
       <div class="mobile-navigation-login">
-        <a href="signin.html" class="sign-in-link">
+        <a href="giris.html" class="sign-in-link">
           <i class="lni lni-user lni-32"></i>
         </a>
       </div>
@@ -294,6 +299,56 @@
 
             YazilariGetir();
 
+            OturumKontrolu();
+
+
+            function OturumKontrolu(){
+              $.ajax({
+                type: "GET",
+                url : "backend/oturumkontrolu.php",
+                success : function(response){
+                  console.log(JSON.parse(response));
+                  var sonuc = JSON.parse(response);
+
+                  if(sonuc){
+                    $(".giris").css("display","none");
+                  }else{
+                    $(".yonet").css("display","none");
+                    $(".cikis").css("display","none");
+                  }
+                
+                }
+              })
+            }
+
+            function CikisYap(){
+             
+              $.ajax({
+                type: "GET",
+                url : "backend/cikis.php",
+                success : function(response){
+                  console.log(JSON.parse(response));
+                  var sonuc = JSON.parse(response);
+
+                  if(sonuc){
+                    $(".giris").css("display","");
+                    $(".yonet").css("display","none");
+                    $(".cikis").css("display","none");
+                  }else{
+                    $(".yonet").css("display","");
+                    $(".cikis").css("display","");
+                    $(".giris").css("display","none");
+                  }
+                
+                }
+              })
+            
+            }
+
+
+            $(".cikis").click(function(){
+              CikisYap();
+            })
             //Önerilen yazıları kaydırma
             var b = null;
             $(".onerilen-liste div").on("mousemove",function(e){

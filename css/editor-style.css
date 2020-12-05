@@ -216,32 +216,7 @@ body::-webkit-scrollbar {
 }
 
 
-/* .editor{
-    
-    display: grid;
-    grid-template-columns: 10px auto 10px;
-}
 
-.editor > div{
-    margin-left: 10px;
-    background-color: red;
-}
-.editor-main{
-    max-width: 80%;
-    min-width: 500px;
-} */
-/*
-*!Fazla yazı yazıldığında saçma sapan kafayı yiyor!(Çözüldü)
-* Şimdi de + butonuna basılınca saçma sapan hareket ediyor!
-*Link ekleme kısmı için bir çözüm düşünülmeli!
-*Alıntı yapma kısmındaki seç fonksiyonu 4 defa çalışıyor! Niye?
-
-*1) Resim yükleme +
-*2) Alıntı yapma! +
-*3) Veri tabanına gönderme!
-*4) Hata testleri yapmak amacıyla kendim için motivasyon yazıları yazıp test edeceğim(en az 2 yazı ve 500 kelime+)
-
-*/
 .text-header-container{
     display: inline-block;
     width: 65%;
@@ -639,4 +614,32 @@ input[type="file"]{
     padding-left: 5px;
     font-family: 'Montserrat', sans-serif;
     font-size: 20px;
+  }
+
+  .anasayfa-linkleri{
+    float: right; 
+    font-size: 20px;
+    margin-right: 20px;  
+    font-family: 'Roboto', sans-serif; 
+    margin-top: 15px; 
+  }
+  a.cikis{
+    color: black;
+    margin-right: 10px;
+    display: "";
+    font-family: 'Montserrat', sans-serif;
+  }
+
+  a.yonet{
+    color: black;
+    margin-right: 30px;
+    display: "";
+    font-family: 'Montserrat', sans-serif;
+  }
+
+  a.giris{
+    color: black;
+    margin-right: 30px;
+    display: "";
+    font-family: 'Montserrat', sans-serif;
   }

@@ -1,10 +1,136 @@
 body{
-    background-color: #121212;
-  }
+  background-color: white;
+}
+.sign-main{
+  width: 80vw;
+  
+  margin-left: 10vmax;
+  /* border:1px solid red; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.sign-in{
+  display: flex;
+  width: 60vmax;
+  height: 60vmin;
+  margin-left: 0;
+  margin-top: 130px;
+  border-radius: 10px;
+  background-color:  white;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
+  transition: box-shadow .5s;
+}
+.sign-in:hover{
+  transition: box-shadow .5s;
+  box-shadow: 0 20px 10px rgba(0, 0, 0, 0.1);
+}
+.sign-in-image-container{
+  width: 300px;
+  height: 400px;
+  border-radius: 5px;
+  float: left;
+}
+.sign-in-image{
+  width: 300px;
+  height: 350px;
+  margin-top: 25px;
+  margin-left: 20px;
+}
+.sign-in-components{
+    /* max-width: 500px;
+    min-width: 400px; */
+    width: 50%;
+    height: 400px;
+    /* float: right; */
+    
+    /* margin-right: 40px; */
+    /* border: 1px solid red; */
+}
+.sign-in-header{
+  font-family: 'Montserrat', sans-serif;
+  font-size: 55px;
+  color: black;
+  
+  padding-top: 70px;
+  text-align: center;
+}
+.sign-in-email{
+    width: 70%;
+    height: 30px;
+    background-color: transparent;
+    margin-top: 20px;
+    margin-left: 10vmin;
+    border: 0;
+    outline: 0;
+    border-bottom: 1px solid #74b9ff;
+    padding-left: 10px;
+    font-family: 'Montserrat', sans-serif;
+    color: black;
+}
+.sign-in-email:focus{
+  border-bottom: 2px solid #74b9ff;
+}
+.sign-in-password{
+  width: 70%;
+  height: 30px;
+  background-color: transparent;
+  margin-top: 30px;
+  margin-left: 10vmin;
+  border: 0;
+  outline: 0;
+  border-bottom: 1px solid #74b9ff;
+  padding-left: 10px;
+  font-family: 'Montserrat', sans-serif;
+  color: black;
+}
+.sign-in-password:focus{
+  border-bottom: 2px solid #74b9ff;
+}
+.sign-in-buttons-container{
+    width: 40vmin;
+    height: 50px;
+    margin-left:10vmin;
+    margin-top: 50px;
+    /* border: 1px solid green; */
+    
+}
+.sign-in-button{
+    width: 45%;
+    height: 50px;
+    border-radius: 3px;
+    font-family: 'Montserrat', sans-serif;
+    color: white;
+    font-weight: bold;
+    background-color: #00b894;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
+    float: left;
+}
+.sign-in-button:hover{
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+}
+.sign-up-button{
+  width: 45%;
+  height: 50px;
+  border-radius: 3px;
+  font-family: 'Montserrat', sans-serif;
+  color: white;
+  font-weight: bold;
+  background-color: #0984e3;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
+  float: right;
+}
+.sign-up-button:hover{
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+}
+
+
+@media only screen and (max-width: 800px) {
+
   .sign-main{
     width: 80vw;
     
-    margin-left: 10vmax;
+    margin-left: 5vmax;
     /* border:1px solid red; */
     display: flex;
     flex-direction: column;
@@ -12,208 +138,82 @@ body{
   }
   .sign-in{
     display: flex;
-    width: 60vmax;
-    height: 60vmin;
-    margin-left: 0;
-    margin-top: 130px;
-    border-radius: 10px;
-    background-color: #1E1E1E;
-    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
-    transition: box-shadow .5s;
-  }
-  .sign-in:hover{
-    transition: box-shadow .5s;
-    box-shadow: 0 20px 10px rgba(0, 0, 0, 0.1);
-  }
-  .sign-in-image-container{
-    width: 300px;
+    width: 98vmin;
     height: 400px;
-    border-radius: 5px;
-    float: left;
+    margin-left: 0;
+    margin-top: 15vmax;
+    border-radius: 10px;
+    background-color: white;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
+    align-items: center;
+    transition: box-shadow .5s;
   }
-  .sign-in-image{
-    width: 300px;
-    height: 350px;
-    margin-top: 25px;
-    margin-left: 20px;
-  }
+
   .sign-in-components{
-      /* max-width: 500px;
-      min-width: 400px; */
-      width: 50%;
-      height: 400px;
-      /* float: right; */
-      
-      /* margin-right: 40px; */
-      /* border: 1px solid red; */
+    width: 100vw;
+    height: 400px;
+    /* float: right; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* margin-right: 40px; */
+    /* border: 1px solid red; */
+}
+  .sign-in-image{
+    display: none;
   }
+
+  .sign-in-image-container{
+    display: none;
+  }
+
+
   .sign-in-header{
     font-family: 'Montserrat', sans-serif;
     font-size: 55px;
-    color: white;
+    color: black;
     
     padding-top: 70px;
     text-align: center;
   }
   .sign-in-email{
-      width: 70%;
+      width: 80%;
       height: 30px;
-      background-color: #1E1E1E;
+      background-color: transparent;
       margin-top: 20px;
-      margin-left: 10vmin;
+      margin-left: 0;
       border: 0;
       outline: 0;
       border-bottom: 1px solid #74b9ff;
       padding-left: 10px;
       font-family: 'Montserrat', sans-serif;
-      color: white;
+      color: black;
   }
   .sign-in-email:focus{
     border-bottom: 2px solid #74b9ff;
   }
   .sign-in-password{
-    width: 70%;
+    width: 80%;
     height: 30px;
-    background-color: #1E1E1E;
+    background-color: white;
     margin-top: 30px;
-    margin-left: 10vmin;
+    margin-left: 0px;
     border: 0;
     outline: 0;
     border-bottom: 1px solid #74b9ff;
     padding-left: 10px;
     font-family: 'Montserrat', sans-serif;
-    color: white;
+    color: black;
   }
   .sign-in-password:focus{
     border-bottom: 2px solid #74b9ff;
   }
+
   .sign-in-buttons-container{
-      width: 40vmin;
-      height: 50px;
-      margin-left:10vmin;
-      margin-top: 50px;
-      /* border: 1px solid green; */
-      
-  }
-  .sign-in-button{
-      width: 45%;
-      height: 50px;
-      border-radius: 3px;
-      font-family: 'Montserrat', sans-serif;
-      color: white;
-      font-weight: bold;
-      background-color: #00b894;
-      box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
-      float: left;
-  }
-  .sign-in-button:hover{
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
-  }
-  .sign-up-button{
-    width: 45%;
-    height: 50px;
-    border-radius: 3px;
-    font-family: 'Montserrat', sans-serif;
-    color: white;
-    font-weight: bold;
-    background-color: #0984e3;
-    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
-    float: right;
-  }
-  .sign-up-button:hover{
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
-  }
-
-
-  @media only screen and (max-width: 800px) {
-
-    .sign-main{
-      width: 80vw;
-      
-      margin-left: 5vmax;
-      /* border:1px solid red; */
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-    .sign-in{
-      display: flex;
-      width: 98vmin;
-      height: 400px;
-      margin-left: 0;
-      margin-top: 15vmax;
-      border-radius: 10px;
-      background-color: #1E1E1E;
-      box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
-      align-items: center;
-      transition: box-shadow .5s;
-    }
-
-    .sign-in-components{
-      width: 100vw;
-      height: 400px;
-      /* float: right; */
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      /* margin-right: 40px; */
-      /* border: 1px solid red; */
-  }
-    .sign-in-image{
-      display: none;
-    }
-
-    .sign-in-image-container{
-      display: none;
-    }
-
-
-    .sign-in-header{
-      font-family: 'Montserrat', sans-serif;
-      font-size: 55px;
-      color: white;
-      
-      padding-top: 70px;
-      text-align: center;
-    }
-    .sign-in-email{
-        width: 80%;
-        height: 30px;
-        background-color: #1E1E1E;
-        margin-top: 20px;
-        margin-left: 0;
-        border: 0;
-        outline: 0;
-        border-bottom: 1px solid #74b9ff;
-        padding-left: 10px;
-        font-family: 'Montserrat', sans-serif;
-        color: white;
-    }
-    .sign-in-email:focus{
-      border-bottom: 2px solid #74b9ff;
-    }
-    .sign-in-password{
-      width: 80%;
-      height: 30px;
-      background-color: #1E1E1E;
-      margin-top: 30px;
-      margin-left: 0px;
-      border: 0;
-      outline: 0;
-      border-bottom: 1px solid #74b9ff;
-      padding-left: 10px;
-      font-family: 'Montserrat', sans-serif;
-      color: white;
-    }
-    .sign-in-password:focus{
-      border-bottom: 2px solid #74b9ff;
-    }
-
-    .sign-in-buttons-container{
-      width: 80vmin;
-      margin-left:0px;
-      margin-top: 50px;
-      
-    }
+    width: 80vmin;
+    margin-left:0px;
+    margin-top: 50px;
     
   }
+  
+}

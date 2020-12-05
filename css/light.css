@@ -360,9 +360,38 @@ body::-webkit-scrollbar{
     font-size: 14px;
   }
 
+  a.cikis{
+    color: black;
+    margin-right: 30px;
+    display: "";
+  }
+
+  a.yonet{
+    color: black;
+    margin-right: 30px;
+    display: "";
+  }
+
+  a.giris{
+    color: black;
+    margin-right: 30px;
+    display: "";
+  }
+
   /*MOBİL İÇİN ÖZEL AYARLAR*/
   @media only screen and (max-width: 600px) {
-
+    a.cikis{
+      display: none;
+    }
+  
+    a.yonet{
+      display: none;
+      
+    }
+  
+    a.giris{
+      display: none;
+    }
     .mobile-navigation{
       width: 95vw;
       height: 70px;

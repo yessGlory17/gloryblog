@@ -225,6 +225,46 @@
             
             
 
+            OturumKontrolu();
+
+
+            function OturumKontrolu(){
+              $.ajax({
+                type: "GET",
+                url : "backend/oturumkontrolu.php",
+                success : function(response){
+                  console.log(JSON.parse(response));
+                  var sonuc = JSON.parse(response);
+
+                  if(sonuc){
+                    
+                  }else{
+                    window.location.href = "https://localhost/Blog/index.html";
+                  }
+                
+                }
+              })
+            }
+
+            function CikisYap(){
+             
+              $.ajax({
+                type: "GET",
+                url : "backend/cikis.php",
+                success : function(response){
+                  console.log(JSON.parse(response));
+                  var sonuc = JSON.parse(response);
+
+                  if(sonuc){
+                    window.location.href = "https://localhost/Blog/index.html";
+                  }else{
+                    
+                  }
+                
+                }
+              })
+            
+            }
             //Yan Menüyü açar kapatır.
             var isOpenMenu = false;
             $(".menu-button").click(function(){

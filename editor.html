@@ -21,14 +21,16 @@
 <body class="dark">
     <div class="navbar">
         <div class="menu-button">
-            <i class="fas fa-bars" style="font-size: 30px; padding-top: 10px; padding-left: 20px;"></i>
+            <!-- <i class="fas fa-bars" style="font-size: 30px; padding-top: 10px; padding-left: 20px;"></i> -->
           </div>
         <div class="logo-container"></div>
-        <div class="submit-button-container">
-            <!--  -->
+        
+        <div class="anasayfa-linkleri" style="">
+            
+            <a href="dashboard.html" class="yonet">Yönet</a>
+            <a href="#" class="cikis">Çıkış</a>
             
         </div>
-        
         <div class="login-logout">
             
 
@@ -220,6 +222,51 @@
             //cookieye göre renk modu ayarı!
             CheckMode();
 
+            OturumKontrolu();
+
+
+            function OturumKontrolu(){
+              $.ajax({
+                type: "GET",
+                url : "backend/oturumkontrolu.php",
+                success : function(response){
+                  console.log(JSON.parse(response));
+                  var sonuc = JSON.parse(response);
+
+                  if(sonuc){
+                    
+                  }else{
+                    window.location.href = "https://localhost/Blog/index.html";
+                  }
+                
+                }
+              })
+            }
+
+            function CikisYap(){
+             
+              $.ajax({
+                type: "GET",
+                url : "backend/cikis.php",
+                success : function(response){
+                  console.log(JSON.parse(response));
+                  var sonuc = JSON.parse(response);
+
+                  if(sonuc){
+                    window.location.href = "https://localhost/Blog/index.html";
+                  }else{
+                    
+                  }
+                
+                }
+              })
+            
+            }
+
+
+            $(".cikis").click(function(){
+                CikisYap();
+            })
 
             //Yan Menüyü açar kapatır.
             var isOpenMenu = false;

@@ -682,3 +682,31 @@ input[type="file"]{
     font-size: 20px;
     color: white;
   }
+
+  .anasayfa-linkleri{
+    float: right; 
+    font-size: 20px;
+    margin-right: 20px;  
+    font-family: 'Roboto', sans-serif; 
+    margin-top: 15px; 
+  }
+  a.cikis{
+    color: white;
+    margin-right: 10px;
+    display: "";
+    font-family: 'Montserrat', sans-serif;
+  }
+
+  a.yonet{
+    color: white;
+    margin-right: 30px;
+    display: "";
+    font-family: 'Montserrat', sans-serif;
+  }
+
+  a.giris{
+    color: white;
+    margin-right: 30px;
+    display: "";
+    font-family: 'Montserrat', sans-serif;
+  }

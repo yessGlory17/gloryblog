@@ -355,10 +355,39 @@ body::-webkit-scrollbar{
     font-size: 14px;
     color: white;
   }
+
+  a.cikis{
+    color: white;
+    margin-right: 30px;
+    display: "";
+  }
+
+  a.yonet{
+    color: white;
+    margin-right: 30px;
+    display: "";
+  }
+
+  a.giris{
+    color: white;
+    margin-right: 30px;
+    display: "";
+  }
   /*MOBİL İÇİN ÖZEL AYARLAR*/
   @media only screen and (max-width: 600px) {
 
-
+    a.cikis{
+      display: none;
+    }
+  
+    a.yonet{
+      display: none;
+      
+    }
+  
+    a.giris{
+      display: none;
+    }
     .mobile-navigation{
         width: 95%;
         height: 70px;
