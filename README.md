@@ -8,7 +8,10 @@
 - Content Editor [https://github.com/yessGlory17/blog-editor]
 - Dynamic Homepage
 - Admin Dashboard
-
+- User & Admin Auth
+- Comment Managment
+- Content Managment
+- User Managment
 ## Screenshoots
 ### Light Mode
 ![First Day Image 1](https://github.com/yessGlory17/gloryblog/blob/main/images/l1.png)
