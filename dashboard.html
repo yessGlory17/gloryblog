@@ -116,8 +116,8 @@
 
     <script>
       $(document).ready(function(){
+        var tip = "";
         
-        SayfaYukleninceYap();
 
         function SayfaYukleninceYap(){
           $(".icerik").remove();
@@ -138,7 +138,7 @@
                   var sonuc = JSON.parse(response);
 
                   if(sonuc){
-                    
+                    KullaniciTipi();
                   }else{
                     window.location.href = "https://localhost/Blog/index.html";
                   }
@@ -146,6 +146,36 @@
                 }
               })
             }
+            
+
+            function KullaniciTipi(){
+              $.ajax({
+                type: "GET",
+                url : "backend/kullanicitipinigetir.php",
+                success : function(response){
+                  //console.log(JSON.parse(response));
+                  var sonuc = JSON.parse(response);
+                  console.log(sonuc)
+                  console.log("Alınan TİP: " + sonuc[0]["tip"])
+                  if(sonuc[0]["tip"] == "editor"){
+                    $(".icerik").remove();
+                    $(".icerik-listesi-panel-baslik").remove();
+                    EditorYazilariniGetir();
+                    $("#bekleyen-yazilar-button").remove();
+                    $("#kullanicilar-button").remove();
+                    $("#bekleyen-kullanicilar-button").remove();
+                    $("#yorumlar-button").remove();
+                    $("#bekleyen-yorumlar-button").remove();
+                  }else{
+                    SayfaYukleninceYap();
+                  }
+                  
+                }
+              })
+            }
+
+
+           
 
             function CikisYap(){
              
@@ -192,7 +222,8 @@
         $("#yayinlananlar-button").on("click",function(){
           $(".icerik").remove();
           $(".icerik-listesi-panel-baslik").remove();
-            YazilariGetir();
+          //YazilariGetir();
+          KullaniciTipi();//Kullanıcı Tipine Göre Panele Yazıları Getirir.
         });
 
         //bekleyenler isimli butonun tıklandığında çalıştracağı fonksiyon
@@ -358,6 +389,53 @@
             })
             }
 
+      function EditorYazilariniGetir(){
+        $.ajax({
+              type: "GET",
+              url : "backend/yazaryazigetir.php",
+              success : function(response){
+                console.log(JSON.parse(response));
+                
+                var yazilar = JSON.parse(response);
+                var baslik = '<p class="icerik-listesi-panel-baslik">YAYINLANANLAR</p>';
+                $(".icerik-liste-panel").append(baslik);
+                $.each(yazilar,function(index, item){
+                  console.log(item["icerik"]);
+
+                  
+                  var icerikMetin = [];
+                  icerikMetin[0] = item["icerik"];
+                  icerikMetin = $.map(icerikMetin,function(str, i){
+                    return $("<div/>").html(str).text();
+                  })
+
+                        var icerikkarti = '<div class="icerik">'+
+                    '<div class="id">'+
+                      '<p class="p-id">' +
+                        + item["id"] +
+                      '</p>'+
+                    '</div>' +
+                    '<div class="baslik">' +
+                      '<p class="p-baslik">' +
+                        item["baslik"] +
+                      '</p>' +
+                    '</div>' +
+                    '<div class="yazar">'+
+                      '<p class="p-yazar">' + 
+                        item["yazar"] +
+                      '</p>'+
+                    '</div>'+
+                    '<i class="far fa-trash-alt" id="yazi-sil"></i>'+
+                    '<a href="yaziduzenle.html" id="'+ item["id"] + '"> <i class="far fa-edit" id="yazi-duzenle"></i> </a>' +
+                  '</div>';
+
+                      
+                        
+                      $(".icerik-liste-panel").append(icerikkarti);
+                })
+              }
+            })
+      }
       function BekleyenYazilariGetir(){
       
               $.ajax({

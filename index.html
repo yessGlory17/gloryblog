@@ -301,6 +301,7 @@
 
             OturumKontrolu();
 
+            
 
             function OturumKontrolu(){
               $.ajax({
@@ -309,13 +310,29 @@
                 success : function(response){
                   console.log(JSON.parse(response));
                   var sonuc = JSON.parse(response);
-
+                  
                   if(sonuc){
+                    KullaniciTipi();
                     $(".giris").css("display","none");
                   }else{
                     $(".yonet").css("display","none");
                     $(".cikis").css("display","none");
                   }
+                
+                }
+              })
+            }
+
+            function KullaniciTipi(){
+              $.ajax({
+                type: "GET",
+                url : "backend/kullanicitipinigetir.php",
+                success : function(response){
+                  //console.log(JSON.parse(response));
+                  var sonuc = JSON.parse(response);
+                  //console.log(response);
+                  console.log(sonuc["tip"])
+                  //alert(response);
                 
                 }
               })
