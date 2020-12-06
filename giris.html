@@ -19,7 +19,9 @@
 <body>
 
     <div class="header" >
-        <img src="./images/logo.png" alt="" class="logo">
+        <a href="index.html">
+          <img src="./images/logo.png" alt="" class="logo">
+        </a>
         <div class="anasayfa-linkleri" style="float: right; font-size: 20px;margin-right: 20px;  font-family: 'Roboto', sans-serif; margin-top: 20px; ">
           <a href="giris.html" class="giris">Giriş / Kayıt Ol</a>
           <a href="dashboard.html" class="yonet">Yönet</a>
@@ -94,7 +96,7 @@
 
                   if(sonuc){
                     $(".giris").css("display","none");
-                    window.location.href = "https://localhost/Blog/index.html";
+                    window.location.href = "index.html";
                   }else{
                     $(".yonet").css("display","none");
                     $(".cikis").css("display","none");
@@ -225,7 +227,7 @@
 
                             if(cevap){
                                 localStorage.setItem('auth-user',email);
-                               window.location.href = "https://localhost/Blog/index.html";
+                               window.location.href = "index.html";
                             }else{
                                 console.log("yakalandıııı");
                             }

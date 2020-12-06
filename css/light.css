@@ -179,6 +179,8 @@ body::-webkit-scrollbar{
     text-align: center;
   }
 
+  
+
   .onerilen-post-icerik{
     max-width: 90%;
     min-width: 60%;
@@ -318,6 +320,7 @@ body::-webkit-scrollbar{
     display: -webkit-box;
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
+    color: black;
   }
 
   
@@ -378,6 +381,14 @@ body::-webkit-scrollbar{
     display: "";
   }
 
+  .editor-link{
+    color: black;
+  }
+
+  .sign-in-link{
+    color: black;
+  }
+  
   /*MOBİL İÇİN ÖZEL AYARLAR*/
   @media only screen and (max-width: 600px) {
     a.cikis{
@@ -470,6 +481,7 @@ body::-webkit-scrollbar{
       display: -webkit-box;
       -webkit-line-clamp: 3;
       -webkit-box-orient: vertical;
+      color: black;
     }
     .icerik-ana-text{
       font-family: 'Roboto', sans-serif;
@@ -492,5 +504,13 @@ body::-webkit-scrollbar{
 
     .mobile-navigation{
       display: none;
+    }
+
+    .editor-link{
+      color: black;
+    }
+
+    .sign-in-link{
+      color: black;
     }
   }

@@ -11,7 +11,8 @@
     <script src="./jQuery/jquery-3.5.1.min.js"></script>
     <link rel="stylesheet" href="./css/reset.css">
     <link rel="stylesheet" href="./css/editor-style.css">
-    <link rel="stylesheet" href="./css/detay.css">
+    <!-- <link rel="stylesheet" href="./css/editor-dark.css"> -->
+    <link id="color-mode-link" rel="stylesheet" href="./css/dark-detay.css">
 </head>
 <body>
     <div class="ana">
@@ -37,8 +38,10 @@
     $(document).ready(function(){
 
         //Tıklanan yazının detaylarını getirir.
+
        DetayGetir();
 
+       CheckMode();
         //Tıklanan yazının yorumlarını getirir.
         YorumGetir();
         $(".yorum-yap-button").on("click",function(){
@@ -130,6 +133,29 @@
             })
 
         }
+
+
+
+        //Seçili modu kontrol ederek sayfa yenilense bile modun sabit kalmasını sağlar
+        function CheckMode(){
+                var mode = localStorage.getItem('dark-mode');
+                if(mode == 'true'){
+                    //alert("Dark mode aktif");
+                    $("#color-mode-link").attr("href","./css/dark-detay.css").fadeIn(1000);
+                    $(".logo").attr("src","./images/logo-dark.png");
+                    //$(".ball").css({'transform' : 'translateX(0px)'});
+                    
+                    //$("#darkmode-checkbox").attr("checked",false);
+                }else{
+                    //alert("Light mode aktif!")
+                    $("#color-mode-link").attr("href","./css/detay.css").fadeIn(1000);
+                    $(".logo").attr("src","./images/logo.png");
+                    //$(".ball").css({left:25});
+                    //$(".ball").css({'transform' : 'translateX(24px)','transition' : 'transform 0.2s linear'})
+                   $(".ball").css({'transform' : 'translateX(24px)'});
+                }
+            }
+
         
     });
 </script>

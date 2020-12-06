@@ -1,0 +1,147 @@
+*{
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
+}
+body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #121212;
+}
+.ana{
+    width: 60vw;
+    
+    margin-top: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+    /* border: 1px solid red; */
+}
+
+.ana > .baslik{
+    width: 90vmin;
+    font-family: 'Roboto', sans-serif;
+    font-size: 40px;
+    color: white;
+}
+
+.icerik{
+    width: 90vmin;
+    /* border: 1px solid blue; */
+    margin-top: 50px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 22px;
+    letter-spacing: -.003em;
+    line-height: 1.58;
+    color: white;
+}
+
+.etiketler{
+    width: 60vw;
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+.yorum{
+    margin-bottom: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+}
+.yorum-input{
+    width: 90vmin;
+    min-height:20px;
+    border: 1px solid grey;
+    border-radius: 50px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
+    padding-top:20px;
+    padding-left: 20px;
+    padding-right: 10px;
+    padding-bottom: 20px;
+    flex-grow: 1;
+    color: white;
+}
+.yorum-input::placeholder{
+    color: white !important;
+}
+.yorum-yap-button{
+    width: 100px;
+    height: 30px;
+    background-color: #81ecec;
+    font-family: 'Roboto', sans-serif;
+    margin-top: 10px;
+    color: white;
+    border-radius: 5px;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.3);
+    transition: background-color .5s, box-shadow .5s;
+}
+.yorum-yap-button:hover{
+    background-color: #00cec9;
+    box-shadow: 0 13px 15px rgba(0, 0, 0, 0.3);
+    transition: background-color .5s, box-shadow .5s;
+}
+
+.yorum-liste{
+    width: 90vmin;
+    min-height: 70px;
+    color: white;
+    background-color: #121212;
+    border-left: 10px solid #182C61;
+    border-right: 10px solid #182c61;
+    border-width: 10px;
+    border-radius: 10px;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    border-radius: 5px;
+    box-shadow: 0 0px 5px rgba(0, 0, 0, 0.3);
+    transition: box-shadow .5s;
+}
+.yorum-liste:hover{
+    box-shadow: 0 3px 15px rgba(0, 0, 0, 0.3);
+    transition: box-shadow .2s;
+}
+.yorum-kullanici{
+    width: 100%;
+    height: 30px;
+    
+}
+.yorum-icerik{
+    width: 100%;
+    min-height: 30px;
+    margin-top: 5px;
+    
+}
+p.yorum-kullanici{
+    font-size: 18px;
+    padding-top: 10px;
+    padding-left: 15px;
+    font-family: 'Roboto', sans-serif;
+    color: #182C61;
+    font-weight: bold;
+}
+p.yorum-icerik{
+    font-size: 18px;
+    padding-top: 5px;
+    padding-left: 15px;
+    padding-bottom: 10px;
+    font-family: 'Roboto', sans-serif;
+    color: white;
+}
+
+.alinti{
+    width: 90vmin;
+    min-height: 50px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding-top: 20px;
+    padding-left: 20px;
+    border-left: 3px solid white;
+    border-right: 3px solid white;
+    border-radius: 3px;
+    padding-bottom: 20px;
+    font-family: 'Raleway', sans-serif;
+    font-size: 20px;
+
+}

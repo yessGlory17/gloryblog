@@ -48,7 +48,9 @@
      -->
     <div class="main" >
         <div class="sol-menu" >
-            <img src="./images/logo.png" alt="" class="dashboard-logo">
+            <a href="index.html">
+              <img src="./images/logo.png" alt="" class="dashboard-logo">
+            </a>
             <button class="yazi-ekle-button">
                 Yazı Ekle
             </button>
@@ -140,7 +142,7 @@
                   if(sonuc){
                     KullaniciTipi();
                   }else{
-                    window.location.href = "https://localhost/Blog/index.html";
+                    window.location.href = "index.html";
                   }
                 
                 }
@@ -187,7 +189,7 @@
                   var sonuc = JSON.parse(response);
 
                   if(sonuc){
-                    window.location.href = "https://localhost/Blog/index.html";
+                    window.location.href = "index.html";
                   }else{
                     
                   }
@@ -207,14 +209,14 @@
 
         $("#anasayfa-button").on("click",function(){
 
-            window.location.href = "https://localhost/Blog/index.html";
+            window.location.href = "index.html";
 
         })
 
 
         $(".yazi-ekle-button").on("click",function(){
 
-           window.location.href = "https://localhost/Blog/editor.html";
+           window.location.href = "editor.html";
 
         })
 
@@ -525,7 +527,7 @@
                       '</select>'+
                     '</div>'+
                       silmeikonu +
-                    '<i class="far fa-edit"></i>' +
+                    
                   '</div>';
 
                   

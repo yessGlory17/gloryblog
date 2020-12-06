@@ -6,6 +6,7 @@
     <title>Editor</title>
     <link rel="stylesheet" href="./css/reset.css">
     <!-- <link rel="stylesheet" href="./css/style.css"> -->
+    <link rel="stylesheet" href="./css/light.css">
     <link id="color-mode-link" rel="stylesheet" href="./css/editor-style.css">
     <!-- <script src="./jquery/jquery-3.5.1.min.js"></script> -->
     <script
@@ -19,11 +20,14 @@
     
 </head>
 <body class="dark">
+    
     <div class="navbar">
         <div class="menu-button">
-            <i class="fas fa-bars" style="font-size: 30px; padding-top: 10px; padding-left: 20px;"></i>
+            <!-- <a href="index.html">
+                <img src="./images/logo.png" alt="" class="logo">
+              </a> -->
           </div>
-        <div class="logo-container"></div>
+        
         <div class="submit-button-container">
             <!--  -->
             
@@ -31,13 +35,13 @@
         
         <div class="login-logout">
             
-
             <button class="submit-post" style="cursor: pointer;">
                 <p class="submit-text"> Yayınla</p>
                 <i id="submit-post-icon" class="fas fa-check" ></i>
             </button>
-
-            <div class="checkbox-container">
+            
+           
+            <div class="checkbox-container" style="margin-top: 0px;">
                 <input type="checkbox" class="checkbox" id="darkmode-checkbox" />
                 <label class="label" for="darkmode-checkbox">
                     <i class="fas fa-moon"></i>
@@ -239,7 +243,7 @@
                   if(sonuc){
                     
                   }else{
-                    window.location.href = "https://localhost/Blog/index.html";
+                    window.location.href = "index.html";
                   }
                 
                 }
@@ -256,7 +260,7 @@
                   var sonuc = JSON.parse(response);
 
                   if(sonuc){
-                    window.location.href = "https://localhost/Blog/index.html";
+                    window.location.href = "index.html";
                   }else{
                     
                   }
@@ -823,6 +827,8 @@
                         success: function(cevap) {
                             console.log(cevap);
                             //alert(cevap);
+                            $("#baslik").innerHtml = "";
+                            
                         },
                         error: function(err) {
                             console.log(err);      
